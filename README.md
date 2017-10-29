@@ -3,6 +3,7 @@
 Crowdsourced convenience app for people who are always on the road.
 
 Current structure:
+```
 .
 |-- config
 |     |-- config.json (from sequelize init, this tells sequelize how to connect to our database)
@@ -24,3 +25,4 @@ Current structure:
 |-- schema.sql (this creates the databased that we use in config.json)
 |
 |-- server.js (this starts and runs our app!)
+```
