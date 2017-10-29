@@ -16,7 +16,8 @@ Current structure:
 |     ├── css
 |         └── style.css (styling)
 |     ├── js
-|         └── this will hold the files for our front-end js (html event listeners/logic, ajax calls to backend routes)
+|         ├── view.js
+|         └── there may be other files that also contain our front-end js (html event listeners/logic, ajax calls to backend routes)
 |     └── html files (our 'views'. will depend on what templating language we use)
 |
 ├── routes
