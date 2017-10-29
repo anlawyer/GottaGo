@@ -6,7 +6,7 @@ Current structure:
 ```
 .
 ├── config
-|     ├── config.json (from sequelize init, this tells sequelize how to connect to our database)
+|     └── config.json (from sequelize init, this tells sequelize how to connect to our database)
 |
 ├── models
 |     ├── index.js (from sequelize init, this connects with our db and connects it to our table models)
