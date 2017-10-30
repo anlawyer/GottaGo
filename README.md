@@ -8,6 +8,9 @@ Current structure:
 ├── config
 |     └── config.json (from sequelize init, this tells sequelize how to connect to our database)
 |
+├── migrations
+|     └── filler-file.js (filler for now. this is where we will write our seed data/tables. this will be invoked in our package.json file with scripts: '"migrate": "sequelize db:migrate"' which will execute on running the app)
+|
 ├── models
 |     ├── index.js (from sequelize init, this connects sequelize with our db and connects it to our table models)
 |     └── (we will create a new file for each model for each table we create)
