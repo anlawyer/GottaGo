@@ -13,15 +13,20 @@ Current structure:
 |
 ├── models
 |     ├── index.js (from sequelize init, this connects sequelize with our db and connects it to our table models)
-|     └── (we will create a new file for each model for each table we create)
+|     └── (we will create a new file for each model for each table we create, likely just the one table)
 |
 ├── public
 |     ├── css
 |         └── style.css (styling)
-|     ├── js
+|     └── js
 |         ├── view.js (html event listeners/logic, ajax calls [of HTTP methods] to backend routes)
 |         └── (there may be other files that also contain our front-end js )
-|     └── html files (our 'views'. will depend on what templating language we use)
+|
+├── views
+|     ├── pages
+|         └── file.ejs (static html that remains consistent on every page [header, footer, etc.])
+|     └── partials
+|         └── file.ejs (simple logic, conditionals for injecting list items, etc. onto the page)
 |
 ├── routes
 |     └── api-routes.js (this is basically our 'controller'. it updates the models with the data from the client request object, and sends the response object with the updated info back to the client)
