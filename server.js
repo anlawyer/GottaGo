@@ -13,6 +13,9 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(express.static('public'));
 
+app.set('view engine', 'ejs');
+
+require('./routes/html-routes.js')(app);
 require('./routes/api-routes.js')(app);
 
 db.sequelize.sync().then(function () {
@@ -20,3 +23,5 @@ db.sequelize.sync().then(function () {
     console.log('App listening on PORT ' + PORT);
   });
 });
+
+const ejs = require('ejs');
