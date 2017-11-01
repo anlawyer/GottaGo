@@ -1,0 +1,34 @@
+DROP DATABASE IF EXISTS project2_db;
+
+CREATE DATABASE project2_db;
+
+USE project2_db;
+
+CREATE TABLE restrooms (
+  id AUTO_INCREMENT NOT NULL,
+  location_name VARCHAR(255) NOT NULL,
+  street VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  comments VARCHAR(255) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE gas_stations (
+  id AUTO_INCREMENT NOT NULL,
+  location_name VARCHAR(255) NOT NULL,
+  street VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  has_restroom BOOLEAN DEFAULT FALSE,
+  comments VARCHAR(255) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE coffee_shops (
+  id AUTO_INCREMENT NOT NULL,
+  location_name VARCHAR(255) NOT NULL,
+  street VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  has_restroom BOOLEAN DEFAULT FALSE,
+  comments VARCHAR(255) NOT NULL,
+  PRIMARY KEY(id)
+  );
