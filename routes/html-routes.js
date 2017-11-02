@@ -5,7 +5,7 @@ module.exports = function (app) {
     res.render('pages/index');
   });
 
-  app.get('/', function (req,res) {
+  app.get('/landing', function (req,res) {
     res.render('pages/landing');
   })
 };
