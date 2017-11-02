@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var ejs = require('ejs');
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -24,4 +25,4 @@ db.sequelize.sync().then(function () {
   });
 });
 
-const ejs = require('ejs');
+
