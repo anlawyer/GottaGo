@@ -4,7 +4,7 @@
   "description": "Full stack project.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js && sequelize db:migrate"
   },
   "repository": {
     "type": "git",

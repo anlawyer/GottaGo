@@ -6,6 +6,12 @@ var rows = [
     location: 'Ashby and Telegraph',
     category: '1',
     comments: 'Only moderately gross'
+  },
+  {
+    name: 'Ohlone Park',
+    location: 'Hearst Ave.',
+    category: '3',
+    comments: 'scary at night'
   }
 ];
 
