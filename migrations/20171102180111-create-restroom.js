@@ -21,12 +21,14 @@ module.exports = {
         type: Sequelize.TEXT
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        // allowNull: false,
+        type: Sequelize.DATEONLY,
+        default: Sequelize.NOW
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        // allowNull: false,
+        type: Sequelize.DATEONLY,
+        default: Sequelize.NOW
       }
     });
   },
