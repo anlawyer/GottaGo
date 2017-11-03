@@ -4,10 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     location: DataTypes.STRING,
     category: DataTypes.INTEGER,
-    comments: DataTypes.TEXT
+    comments: DataTypes.TEXT,
+    createdAt: DataTypes.DATEONLY,
+    updatedAt: DataTypes.DATEONLY
   }, {
     classMethods: {
-      associate: function(models) {
+      associate: function (models) {
         // associations can be defined here
       }
     }
