@@ -1,19 +1,29 @@
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
+    <a class="navbar-item" href="/landing">
       <img src="" alt="Brand Logo">
     </a>
-    <button class="button navbar-burger">
-      <span><a href="/"></a></span>
-      <span><a href="/about"></a></span>
-    </button>
+    <div class="navbar-burger burger" data-target="navbarStuff">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
-  <div class="navbar-menu">
+  <div id="navbarStuff" class="navbar-menu">
     <div class="navbar-start">
-      <a href="/" class="navbar-item">Home</a>
+      <a href="/landing" class="navbar-item">
+        <i class="fa fa-search"></i>
+      </a>
+    </div>
+    <div class="navbar-item">
+      <a href="/addRestroom" class="navbar-item">
+        <i class="fa fa-plus"></i>
+      </a>
     </div>
     <div class="navbar-end">
-      <a href="/accountPage" class="navbar-item">account</a>
+      <a href="/account" class="navbar-item">
+        <i class="fa fa-user-circle"></i>
+      </a>
     </div>
   </div>
 </nav>

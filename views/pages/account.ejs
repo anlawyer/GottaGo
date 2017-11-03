@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gotta Go! - Your account</title>
     <% include ../partials/head %>
   </head>
   <body>
@@ -12,8 +11,12 @@
     <section class="block">
       <div class="columns is-centered">
           <div class="column is-one-third">
+            <!-- this button doesn't do what we want yet -->
+            <label for="old-password">Old Password</label>
             <input type='text' name='old-password' id='old-password'>
-            <a class="button" href="/account">Confirm</a>
+            <label for="new-password">New Password</label>
+            <input type="text" name="new-password" id="new-password">
+            <button type="submit" id="account-subm">Submit</button>
           </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+// setting up express server on port 8080, setting up body parser,
+// setting up view engine for ejs, requiring route files
 var express = require('express');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
@@ -12,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 app.set('view engine', 'ejs');
 

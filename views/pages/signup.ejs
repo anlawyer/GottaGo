@@ -1,8 +1,7 @@
-<!-- PLACEHOLDER CODE -->
+<!DOCTYPE html>
 
 <html>
   <head>
-    <title>Gotta Go! - Your account</title>
     <% include ../partials/head %>
   </head>
   <body>
@@ -12,8 +11,13 @@
     <section class="block">
       <div class="columns is-centered">
           <div class="column is-one-third">
-            <input type='text' name='old-password' id='old-password'>
-            <a class="button" href="/account">Confirm</a>
+            <form class="" action="/api/signup" method="post">
+              <label for="newUser">Desired Username</label>
+              <input type="text" name="newUser" id="newUser">
+              <label for="newPass">Password</label>
+              <input type="text" name="newPass" id="newPass">
+              <button type="submit" id="signup-subm"><a href="/landing">Submit</a></button>
+            </form>
           </div>
       </div>
     </section>
