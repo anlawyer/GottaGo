@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     createdAt: DataTypes.DATEONLY,
     updatedAt: DataTypes.DATEONLY
   }, {
+    freezeTableName: true
+  }, {
     classMethods: {
       associate: function (models) {
         // associations can be defined here

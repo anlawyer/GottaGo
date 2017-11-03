@@ -1,19 +1,25 @@
 'use strict';
 
-module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('restroom', [{
-      name: 'Starbucks',
-      location: 'Ashby and Telegraph',
-      category: '1',
-      comments: 'Only moderately gross',
-      createdAt: '2017-11-02',
-      updatedAt: '2017-11-02'
-    }], {});
+var rows = [
+  {
+    name: 'Starbucks',
+    location: 'Ashby and Telegraph',
+    category: '1',
+    comments: 'Only moderately gross'
   },
-  down: (queryInterface, Sequelize) => {
-    queryInterface.bulkDelete('restroom', [{
-      name: 'Starbucks'
-    }]);
+  {
+    name: 'Ohlone Park',
+    location: 'Hearst Ave.',
+    category: '3',
+    comments: 'scary at night'
+  }
+];
+
+module.exports = {
+  up: function (queryInterface, Sequelize) {
+    return queryInterface.bulkInsert('restroom', rows, {});
+  },
+  down: function (queryInterface, Sequelize) {
+    queryInterface.bulkDelete('restroom', null, {});
   }
 };
