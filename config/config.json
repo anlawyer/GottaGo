@@ -1,13 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "test_db",
+    "password": "123",
+    "database": "gotta_go_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "migrationStorage": "json",
-    "migrationStoragePath": "sequelizeMeta.json",
-    "migrationStorageTableName": "restroom"
+    "migrationStorageTableName": "SequelizeMeta"
   },
   "test": {
     "username": "root",
