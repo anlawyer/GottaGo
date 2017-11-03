@@ -1,7 +1,6 @@
-<!-- PLACEHOLDER CODE -->
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Gotta Go! - Your account</title>
     <% include ../partials/head %>
   </head>
   <body>
@@ -9,10 +8,76 @@
       <% include ../partials/header %>
     </header>
     <section class="block">
-      <div class="columns is-centered">
-          <div class="column is-one-third">
-            <input type='text' name='old-password' id='old-password'>
-            <a class="button" href="/account">Confirm</a>
+      <div class="columns">
+          <div class="column is-centered is-one-third">
+            <form class="" action="/api/newRoom" method="post">
+              <div class="field">
+                <label for="new-title">Give this place a name</label>
+                <div class="control">
+                  <input type="text" name="new-title" id="new-title">
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox" id="here-now">
+                    You're here now
+                  </label>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="new-address">If you know the address:</label>
+                <div class="control">
+                  <input type="text" name="new-address" id="new-address">
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox" id="feature 1">
+                    has feature 1?
+                  </label>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="field-label">
+                  <label class="label">Type of place?</label>
+                </div>
+                <div class="field-body">
+                  <div class="field is-narrow">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="category">
+                        Gas Station
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="category">
+                        Coffee shop
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="category">
+                        Tree House
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="category">
+                        Other
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button type="submit" class="button is-primary">
+                    <a href="/landing">Add Loo</a>
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
       </div>
     </section>
