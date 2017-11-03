@@ -6,14 +6,15 @@ Current structure:
 ```
 .
 ├── config
-|     └── config.json (from sequelize init, this tells sequelize how to connect to our database)
+|     └── config.json (from sequelize init, this tells sequelize how to connect to our database. There is a line called: `migrationStorageTableName` which is directed to `SequelizeMeta`. This creates the table in our database that holds all the history of migrations and seeds.)
 |
 ├── migrations
-|     └── filler-file.js (filler for now. this is where we will write our seed data/tables. this will be invoked in our package.json file with scripts: '"migrate": "sequelize db:migrate"' which will execute on running the app)
+|     ├── ######-restroom-seeds.js (this file holds the seeds we want inserted into the database on connection.)
+|     └── ######-create-restroom.js (this file holds the details of the `restroom` table model.)
 |
 ├── models
 |     ├── index.js (from sequelize init, this connects sequelize with our db and connects it to our table models)
-|     └── (we will create a new file for each model for each table we create, likely just the one table)
+|     └── restroom.js (this file holds the model of our table, which the migration file references.)
 |
 ├── public
 |     ├── css
@@ -29,7 +30,8 @@ Current structure:
 |         └── file.ejs (simple logic, conditionals for injecting list items, etc. onto the page)
 |
 ├── routes
-|     └── api-routes.js (this is basically our 'controller'. it updates the models with the data from the client request object, and sends the response object with the updated info back to the client)
+|     ├── api-routes.js (this is basically our 'controller'. it updates the models with the data from the client request object, and sends the response object with the updated info back to the client)
+|     └── html-routes.js (this file establishes our routes that move the user from one page to the next.)
 |
 ├── schema.sql (this creates the database that we use in config.json)
 |
