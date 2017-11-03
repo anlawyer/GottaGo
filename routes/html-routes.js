@@ -1,8 +1,13 @@
 var express = require('express');
 
 module.exports = function (app) {
-  app.get('/', function (req,res) {
+
+  app.get('/', function (req, res) {
     res.render('pages/index');
+  });
+
+  app.get('/landing_map', function (req, res) {
+    res.render('pages/landing_map');
   });
 
   app.get('/account', function (req,res) {
@@ -17,8 +22,8 @@ module.exports = function (app) {
     res.render('pages/signup');
   });
 
-  app.get('/landing', function (req,res) {
-    res.render('pages/landing');
+  app.get('/landing_list', function (req,res) {
+    res.render('pages/landing_list');
   })
 
   app.get('/addRestroom', function (req,res) {
