@@ -6,7 +6,9 @@ module.exports = {
       name: 'Starbucks',
       location: 'Ashby and Telegraph',
       category: '1',
-      comments: 'Only moderately gross'
+      comments: 'Only moderately gross',
+      createdAt: '2017-11-02',
+      updatedAt: '2017-11-02'
     }], {});
   },
   down: (queryInterface, Sequelize) => {
