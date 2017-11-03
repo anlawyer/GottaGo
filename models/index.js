@@ -3,7 +3,7 @@
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
-var basename  = path.basename(__filename);
+var basename  = path.basename(__filename); //(module.filename)
 var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
@@ -15,7 +15,7 @@ if (config.use_env_variable) {
 }
 
 fs
-  .readdirSync(__dirname)
+  .readdirSync(__dirname) // supposed to be our directory's name?
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
