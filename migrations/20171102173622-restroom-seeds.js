@@ -7,13 +7,17 @@ module.exports = {
         name: 'Starbucks',
         location: 'Ashby and Telegraph',
         category: '1',
-        comments: 'Only moderately gross'
+        comments: 'Only moderately gross',
+        createdAt: '2017-11-02',
+        updatedAt: '2017-11-03'
       },
       {
         name: 'Ohlone Park',
         location: 'Hearst Ave.',
         category: '3',
-        comments: 'scary at night'
+        comments: 'scary at night',
+        createdAt: '2017-11-02',
+        updatedAt: '2017-11-02'
       },
       {
         name: 'Claremont Library',

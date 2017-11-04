@@ -1,48 +1,28 @@
-$(document).ready(function() {
-  // Getting a reference to the input field where user adds a new todo
-  var $newLocation = $("#location-name");
-  var $address = $("#address");
-  var $category = $(".radio");
-  var $comment = $("#comment");
 
-  // Our new todos will go inside the todoContainer
-  var $todoContainer = $(".todo-container");
-  // Adding event listeners for deleting, editing, and adding todos
-  $(document).on("click", "#submit", insertLocation);
-  
-  // Our initial todos array
-  var t = [];
+=======
+document.addEventListener('DOMContentLoaded', function () {
 
-  // Getting todos from database when page loads
-  getLocations();
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-  // This function resets the todos displayed with new todos from the database
-  function initializeRows() {
-    $todoContainer.empty();
-    var rowsToAdd = [];
-    for (var i = 0; i < todos.length; i++) {
-      rowsToAdd.push(createNewRow(todos[i]));
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
 
-    $todoContainer.prepend(rowsToAdd);
-  }
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
 
-  // This function grabs todos from the database and updates the view
-  function getLocations() {
-    $.get("/api/todos", function(data) {
-      t = data;
-      initializeRows();
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
     });
   }
 
-  // This function inserts a new todo into our database and then updates the view
-  function insertLocation(event) {
-    event.preventDefault();
-    var t = {
-      text: $newItemInput.val().trim(),
-      complete: false
-    };
-
-    $.post("/api/todos", t, getLocations);
-    $newItemInput.val("");
-  }
-}
+});
+>>>>>>> 0de8e22db91faa0bfbd33a25e7fb5e31f2e2e98f
