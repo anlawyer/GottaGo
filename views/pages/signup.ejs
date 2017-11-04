@@ -8,6 +8,11 @@
     <header>
       <% include ../partials/header %>
       <style>
+
+        html, body {
+          background-color: #f9fafb;
+        }
+
         .columns {
           margin: 0;
         }
@@ -26,6 +31,9 @@
         .button {
           margin-top: 10px;
           padding: 10px 60px;
+          background-color: #343377;
+          color: #ffffff;
+          font-weight: 700;
         }
         
         input.input {
@@ -37,7 +45,16 @@
         }
 
         h1 {
+          color: #343377;
           font-size: 2em;
+        }
+
+        nav.navbar.is-info {
+          background-color: #343377;
+        }
+
+        label.label {
+          color: #343377;
         }
 
       </style>
@@ -56,7 +73,7 @@
             <div class="field">
               <label class="label">Username</label>
               <div class="control">
-                <input class="input" type="text" placeholder="your username">
+                <input id="username" class="input" type="text" placeholder="your username">
               </div>
             </div>
           </div>
@@ -67,7 +84,7 @@
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <input class="input" type="email" placeholder="your email">
+                <input id="email" class="input" type="email" placeholder="your email">
               </div>
             </div>
           </div>
@@ -78,11 +95,11 @@
             <div class="field">
               <label class="label">Password</label>
               <div class="control">
-                <input class="input" type="password" placeholder="enter password">
+                <input id="password" class="input" type="password" placeholder="enter password">
               </div>
               <label class="label">Confirm password</label>
               <div class="control">
-                <input class="input" type="password" placeholder="confirm password">
+                <input id="confirm-password" class="input" type="password" placeholder="confirm password">
               </div>
             </div>
           </div>
@@ -92,7 +109,7 @@
           <div class="column">
             <div class="field">
               <div id="sumbit" class="control">
-                <a class="button" type="submit">Sign up</a>
+                <a class="button" type="submit" method="PUT">Sign up</a>
               </div>
             </div>
           </div>

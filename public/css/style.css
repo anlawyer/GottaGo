@@ -1,5 +1,6 @@
 body {
 	position: relative;
+
 }
 
 footer.footer {
@@ -29,3 +30,8 @@ footer.footer {
 .color-primary-2 { color: #2C6E8A }
 .color-primary-3 { color: #1982AF }
 .color-primary-4 { color: #06A0E3 }
+
+font-family: 'Raleway', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Work Sans', sans-serif;
+font-family: 'Questrial', sans-serif;

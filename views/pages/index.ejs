@@ -4,6 +4,18 @@
   <head>
     <% include ../partials/head %>
     <style>
+      html {
+        /*border: 20px solid #4541a1;*/
+        font-family: 'Raleway', sans-serif;
+      }
+      html, body {
+        font-family: 'Raleway', sans-serif;
+        background-color: #393f60;
+        color: #f2f4f6;
+        width: 100%;
+        height: 100%;
+      }
+
       .columns {
        
       }
@@ -14,6 +26,7 @@
       }
 
       #logo {
+        font-weight: 700;
         margin: 20px;
         padding: 40px;
         font-size: 26px;
@@ -25,7 +38,28 @@
       }
 
       a.button {
+        font-family: 'Raleway', sans-serif;
+        background-color: #f78255;
         width: 150px;
+        color: #fffffd;
+        font-weight: 700;
+        border: none;
+      }
+
+      p {
+        font-family: 'Raleway', sans-serif;
+        margin-bottom: 10px;
+      }
+
+      footer.footer.is-info {
+        height: 60px;
+        background-color: #393f60;
+        text-align: center;
+      }
+
+      footer strong {
+        color: #f2f4f6;
+        font-size: 12px;
       }
 
     </style>
@@ -36,7 +70,7 @@
     </div>
 
     <div id="intro" class="has-text-centered">
-      <p>Log in/Sign up to be able comment, save favorite places and add new locations.</p><br>
+      <p><strong style="color: #f2f4f6">Log in/Sign up</strong> to be able comment, save favorite places and add new locations.</p>
       <p> Or use it for searching without registration.</p>
     </div>
 

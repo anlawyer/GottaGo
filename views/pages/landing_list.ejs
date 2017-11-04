@@ -3,6 +3,37 @@
 <html>
   <head>
     <% include ../partials/head %>
+    <style>
+
+      html body {
+        background-color: #f9fafb;
+      }
+
+      nav.navbar.is-info {
+        background-color: #343377;
+      }
+
+      .subtitle:not(:last-child) {
+        margin-bottom: 0;
+      }
+      .box:not(:last-child) {
+        margin-bottom: 0;
+      }
+      .box.park {
+        /*background-color: #42c888;*/
+      }
+
+      .box.gas-station {
+        /*background-color: #f6d53a; */
+      }
+
+      .box.restaurant {
+        /*background-color: #2684f4; */
+      }
+
+
+
+    </style>
   </head>
   <body>
     <header>
@@ -25,12 +56,19 @@
         </li>
       </ul>
     </div> 
-    <section>
-      <div class="tile is-ancestor">
+    <div class="box park">
         <% include ../partials/placecard %>
+    </div>
+    <div class="box restaurant">
         <% include ../partials/placecard %>
-      </div>
-    </section>
+    </div>
+    <div class="box gas-station">
+        <% include ../partials/placecard %>
+    </div>
+    <div class="box restaurant">
+        <% include ../partials/placecard %>
+    </div>
+
     <footer>
       <% include ../partials/footer %>
     </footer>
