@@ -1,5 +1,4 @@
 
-=======
 document.addEventListener('DOMContentLoaded', function () {
 
   // Get all "navbar-burger" elements
@@ -25,4 +24,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
->>>>>>> 0de8e22db91faa0bfbd33a25e7fb5e31f2e2e98f
+
