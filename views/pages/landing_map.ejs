@@ -9,18 +9,29 @@
       <% include ../partials/header %>
       <style>
         #map {
-          height: 500px;
+          height: 600px;
           width: 100%;
         }
       </style>
     </header>
+    <div class="tabs is-toggle is-fullwidth">
+      <ul>
+        <li class="">
+          <a href="/landing_map">
+            <span class="icon is-small"><i class="fa fa-map"></i></span>
+            <span>Map View</span>
+          </a>
+        </li>
+        <li>
+          <a href="/landing_list">
+            <span class="icon is-small"><i class="fa fa-list"></i></span>
+            <span>List View</span>
+          </a>
+        </li>
+      </ul>
+    </div> 
     <section>
       <div class="tile is-ancestor">
-        <a class="button" href="/landing_map" attr="active">Map View</a>
-        <a class="button" href="/landing_list">List View</a>
-       <!--  <% include ../partials/placecard %>
-        <% include ../partials/placecard %>
-        <% include ../partials/placecard %> -->
         <div id="map">
           <% include ../partials/map %> 
         </div>

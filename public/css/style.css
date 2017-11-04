@@ -1,0 +1,31 @@
+body {
+	position: relative;
+}
+
+footer.footer {
+	background-color: orange;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+
+.color-primary-0 { color: #38F9A1 }	/* Main Primary color: green */
+.color-primary-1 { color: #95FCCD }
+.color-primary-2 { color: #63FAB6 }
+.color-primary-3 { color: #0DF68C }
+.color-primary-4 { color: #00EC81 }
+
+.color-primary-0 { color: #99938E }	/* Main Primary color: brown */
+.color-primary-1 { color: #BDAA98 }
+.color-primary-2 { color: #89817A }
+.color-primary-3 { color: #7B7168 }
+.color-primary-4 { color: #6C6056 }
+
+.color-primary-0 { color: #366072 }	/* Main Primary color: blue/grey; */
+.color-primary-1 { color: #ADE4FD }
+.color-primary-2 { color: #2C6E8A }
+.color-primary-3 { color: #1982AF }
+.color-primary-4 { color: #06A0E3 }

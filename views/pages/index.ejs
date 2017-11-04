@@ -3,21 +3,61 @@
 <html>
   <head>
     <% include ../partials/head %>
+    <style>
+      .columns {
+       
+      }
+
+      .column {
+       
+       
+      }
+
+      #logo {
+        margin: 20px;
+        padding: 40px;
+        font-size: 26px;
+      }
+
+      #intro {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      a.button {
+        width: 150px;
+      }
+
+    </style>
     </head>
   <body>
-    <!-- DB: I'm going to take out the header for now on this page -->
-  <!--  <header>
-      <% include ../partials/header %>
-    </header> -->
-    <section class="block">
-      <div class="columns is-centered">
-          <div class="column is-one-third">
-            <a class="button" href="/login">Log in</a>
-            <a class="button" href="/signup">Sign Up</a>
-            <a class="button" href="/landing_map">Just use it</a>
-          </div>
+    <div id="logo" class="has-text-centered">
+      <img src="" alt="Gotta Go">
+    </div>
+
+    <div id="intro" class="has-text-centered">
+      <p>Log in/Sign up to be able comment, save favorite places and add new locations.</p><br>
+      <p> Or use it for searching without registration.</p>
+    </div>
+
+    <div class="columns">
+      <div class="column has-text-centered">
+        <a class="button" href="/login">Log in</a>
       </div>
-    </section>
+    </div>
+
+    <div class="columns">
+      <div class="column has-text-centered">
+        <a class="button" href="/signup">Sign Up</a>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column has-text-centered">
+        <a class="button" href="/landing_list">Just use it</a>
+      </div>
+    </div>
+    
     <footer>
       <% include ../partials/footer %>
     </footer>
