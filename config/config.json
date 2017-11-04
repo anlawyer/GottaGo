@@ -5,7 +5,10 @@
     "database": "gotta_go_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "migrationStorageTableName": "SequelizeMeta"
+    "migrationStorage": "json",
+    "migrationStoragePath": "sequelizeMeta.json",
+    "migrationStorageTableName": "restroom"
+
   },
   "test": {
     "username": "root",
