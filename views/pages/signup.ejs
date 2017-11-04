@@ -7,20 +7,96 @@
   <body>
     <header>
       <% include ../partials/header %>
+      <style>
+        .columns {
+          margin: 0;
+        }
+
+        .column {
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+
+        .input {
+          margin-bottom: 10px;
+        }
+
+        .button {
+          margin-top: 10px;
+          padding: 10px 60px;
+        }
+        
+        input.input {
+          max-width: 400px;
+        }
+
+        #title {
+          padding: 40px;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+      </style>
     </header>
-    <section class="block">
-      <div class="columns is-centered">
-          <div class="column is-one-third">
-            <form class="" action="/api/signup" method="post">
-              <label for="newUser">Desired Username</label>
-              <input type="text" name="newUser" id="newUser">
-              <label for="newPass">Password</label>
-              <input type="text" name="newPass" id="newPass">
-              <button type="submit" id="signup-subm"><a href="/landing">Submit</a></button>
-            </form>
+        <div class="columns">
+          <div id="title" class="column has-text-centered">
+            <div class="">
+              <h1>WELCOME!</h1>
+            </div>
           </div>
-      </div>
-    </section>
+        </div>
+       
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="your username">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input" type="email" placeholder="your email">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input class="input" type="password" placeholder="enter password">
+              </div>
+              <label class="label">Confirm password</label>
+              <div class="control">
+                <input class="input" type="password" placeholder="confirm password">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <div id="sumbit" class="control">
+                <a class="button" type="submit">Sign up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <footer>
       <% include ../partials/footer %>
     </footer>
