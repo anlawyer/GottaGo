@@ -9,7 +9,7 @@ $(document).ready(function () {
   $(document).on('click', '#submit', submitRestroom);
 
   function submitRestroom (event) {
-    console.log($name + ' on submit'); // this does not work yet
+    console.log('clicked'); // this does not work yet
     event.preventDefault();
     var newRestroom = {
       name: $name.val().trim(),
