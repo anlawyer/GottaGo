@@ -10,7 +10,7 @@ module.exports = function (app) {
   });
 
   app.post('/api/new/restroom', function (req, res) {
-    console.log(req.body);
+    console.log(req.body + 'line 13 of api-routes');
     db.restroom.create(
       req.body
       // {
