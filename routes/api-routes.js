@@ -9,7 +9,7 @@ module.exports = function (app) {
     });
   });
 
-  app.post('api/newrestroom', function (req, res) {
+  app.post('api/new/restroom', function (req, res) {
     console.log(req.body);
     db.restroom.create({
       name: req.body.name,
