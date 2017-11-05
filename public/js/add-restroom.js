@@ -4,10 +4,12 @@ $(document).ready(function () {
   var $location = $('#address');
   var $type = $('label.radio');
   var $comments = $('#comment');
-  console.log($name + ' on ready');
+  console.log($name + ' on ready'); // this outputs '[object Object] on ready'
+
   $(document).on('click', '#submit', submitRestroom);
+
   function submitRestroom (event) {
-    console.log($name + ' on submit');
+    console.log($name + ' on submit'); // this does not work yet
     event.preventDefault();
     var newRestroom = {
       name: $name.val().trim(),
@@ -17,10 +19,12 @@ $(document).ready(function () {
       // createdAt: req.body.createdAt,
       // updatedAt: req.body.updatedAt
     };
+
     console.log(newRestroom);
     $.post('/api/new/restroom', newRestroom, function () {
       alert('Restroom added!');
     });
+
     $name.val('');
     $location.val('');
     $type.val('');
