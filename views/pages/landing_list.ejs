@@ -3,37 +3,6 @@
 <html>
   <head>
     <% include ../partials/head %>
-    <style>
-
-      html body {
-        background-color: #f9fafb;
-      }
-
-      nav.navbar.is-info {
-        background-color: #343377;
-      }
-
-      .subtitle:not(:last-child) {
-        margin-bottom: 0;
-      }
-      .box:not(:last-child) {
-        margin-bottom: 0;
-      }
-      .box.park {
-        /*background-color: #42c888;*/
-      }
-
-      .box.gas-station {
-        /*background-color: #f6d53a; */
-      }
-
-      .box.restaurant {
-        /*background-color: #2684f4; */
-      }
-
-
-
-    </style>
   </head>
   <body>
     <header>
@@ -42,16 +11,16 @@
     
     <div class="tabs is-toggle is-fullwidth">
       <ul>
-        <li class="">
-          <a href="/landing_map">
+        <li>
+          <a class="view" href="/landing_map">
             <span class="icon is-small"><i class="fa fa-map"></i></span>
-            <span>Map View</span>
+            <span>Map</span>
           </a>
         </li>
         <li>
-          <a href="/landing_list">
+          <a class="view" href="/landing_list">
             <span class="icon is-small"><i class="fa fa-list"></i></span>
-            <span>List View</span>
+            <span>List</span>
           </a>
         </li>
       </ul>

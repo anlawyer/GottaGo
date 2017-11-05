@@ -7,116 +7,59 @@
   <body>
     <header>
       <% include ../partials/header %>
-      <style>
-
-        html, body {
-          background-color: #f9fafb;
-        }
-
-        .columns {
-          margin: 0;
-        }
-
-        .column {
-          padding-top: 0;
-          padding-bottom: 0;
-          padding-left: 40px;
-          padding-right: 40px;
-        }
-
-        .input {
-          margin-bottom: 10px;
-        }
-
-        .button {
-          margin-top: 10px;
-          padding: 10px 60px;
-          background-color: #343377;
-          color: #ffffff;
-          font-weight: 700;
-        }
-        
-        input.input {
-          max-width: 400px;
-        }
-
-        #title {
-          padding: 40px;
-        }
-
-        h1 {
-          color: #343377;
-          font-size: 2em;
-        }
-
-        nav.navbar.is-info {
-          background-color: #343377;
-        }
-
-        label.label {
-          color: #343377;
-        }
-
-      </style>
     </header>
     
-        <div class="columns">
-          <div id="title" class="column has-text-centered">
-            <div class="">
-              <h1>WELCOME!</h1>
-            </div>
+    <div class="columns">
+      <div id="title" class="column has-text-centered">
+        <div class="">
+          <h1>WELCOME!</h1>
+        </div>
+      </div>
+    </div>
+   
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label">Username</label>
+          <div class="control">
+            <input id="username" class="input" type="text" placeholder="your username">
+          </div>
+          <label class="label">Email</label>
+          <div class="control">
+            <input id="email" class="input" type="email" placeholder="your email">
           </div>
         </div>
-       
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Username</label>
-              <div class="control">
-                <input id="username" class="input" type="text" placeholder="your username">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input id="email" class="input" type="email" placeholder="your email">
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input id="password" class="input" type="password" placeholder="enter password">
-              </div>
-              <label class="label">Confirm password</label>
-              <div class="control">
-                <input id="confirm-password" class="input" type="password" placeholder="confirm password">
-              </div>
-            </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input id="password" class="input" type="password" placeholder="enter password">
+          </div>
+          <label class="label">Confirm password</label>
+          <div class="control">
+            <input id="confirm-password" class="input" type="password" placeholder="confirm password">
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <div id="sumbit" class="control">
-                <a class="button" type="submit" method="PUT">Sign up</a>
-              </div>
-            </div>
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          <div id="sumbit" class="control">
+            <a class="button" type="submit" method="PUT">Sign up</a>
           </div>
         </div>
+      </div>
+    </div>
 
     <footer>
       <% include ../partials/footer %>
     </footer>
+
   </body>
 </html>

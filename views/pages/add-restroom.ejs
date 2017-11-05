@@ -6,72 +6,12 @@
   <body>
     <header>
       <% include ../partials/header %>
-      <style>
-        html, body {
-          background-color: #f9fafb;
-        }s
-
-        .columns {
-          margin: 0;
-        }
-
-        .column {
-          padding-top: 0;
-          padding-bottom: 0;
-          padding-left: 40px;
-          padding-right: 40px;
-        }
-
-        .input {
-          margin-bottom: 10px;
-        }
-
-        .button {
-          margin-top: 10px;
-          padding: 10px 60px;
-          background-color: #343377;
-          color: #ffffff;
-          font-weight: 700;
-        }
-        
-        input.input {
-          max-width: 400px;
-        }
-
-        textarea.textarea {
-          max-width: 100px;
-        }
-
-        #title {
-          padding: 20px;
-        }
-
-        h1 {
-          font-size: 2em;
-          color: #343377;
-        }
-
-        nav.navbar.is-info {
-          background-color: #343377;
-        }
-
-        label.label {
-          color: #343377;
-        }
-
-        label#radio {
-          color: #343377;
-          margin-bottom: 20px;
-          margin-right: 20px;
-        }
-
-      </style>
     </header>
     
     <div class="columns">
       <div id="title" class="column has-text-centered">
         <div class="">
-          <h1>ADD NEW LOCATION</h1>
+          <h2>ADD NEW LOCATION</h2>
         </div>
       </div>
     </div>
@@ -83,13 +23,6 @@
           <div class="control">
             <input id="location-name" class="input" type="text" placeholder="eg. park, cafe">
           </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="columns">
-      <div class="column">
-        <div class="field">
           <label class="label">ADDRESS</label>
           <div class="control">
             <input id="address" class="input" type="email" placeholder="eg. 1995 University Ave, Berkeley, CA, 94704">

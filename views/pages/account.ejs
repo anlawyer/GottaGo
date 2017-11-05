@@ -7,54 +7,12 @@
   <body>
     <header>
       <% include ../partials/header %>
-      <style>
-        .columns {
-          margin: 0;
-        }
-
-        .column {
-          padding-top: 0;
-          padding-bottom: 0;
-          padding-left: 40px;
-          padding-right: 40px;
-        }
-
-        .input {
-          margin-bottom: 10px;
-        }
-
-        .button {
-          margin-top: 10px;
-          padding: 10px 60px;
-        }
-        
-        input.input {
-          max-width: 400px;
-        }
-
-        #title {
-          padding: 20px;
-        }
-
-        h1 {
-          font-size: 2em;
-        }
-
-      </style>
-  </header>
+    </header>
     
     <div class="columns">
       <div id="title" class="column has-text-centered">
         <div class="">
-          <h1>HI, <span>USER</span></h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="column">
-        <div class="">
-          <h3>ACCOUNT SETTINGS</h3>
+          <h2>ACCOUNT INFO</h2>
         </div>
       </div>
     </div>
@@ -66,13 +24,6 @@
           <div class="control">
             <input id="username" class="input" type="text" placeholder="your username">
           </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="columns">
-      <div class="column">
-        <div class="field">
           <label class="label">Email</label>
           <div class="control">
             <input id="email" class="input" type="email" placeholder="your email">
@@ -104,7 +55,7 @@
       <div class="column">
         <div class="field">
           <div id="sumbit" class="control">
-            <a class="button" type="submit" method="PUT">Save</a>
+            <a class="button" type="submit" method="PUT">Update</a>
           </div>
         </div>
       </div>
