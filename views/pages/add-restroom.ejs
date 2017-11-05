@@ -2,6 +2,7 @@
 <html>
   <head>
     <% include ../partials/head %>
+    <script src="./js/add-restroom.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -26,7 +27,7 @@
           </div>
           <label class="label">ADDRESS</label>
           <div class="control">
-            <input id="address" class="input" type="email" placeholder="eg. 1995 University Ave, Berkeley, CA, 94704">
+            <input id="address" class="input" type="address" placeholder="eg. 1995 University Ave, Berkeley, CA, 94704">
           </div>
         </div>
       </div>
@@ -69,8 +70,8 @@
     <div class="columns">
       <div class="column">
         <div class="field">
-          <div id="sumbit" class="control">
-            <button class="button"  type="submit" method="POST">SUBMIT</button>
+          <div  class="control">
+            <button class="button" id="sumbit" type="submit" method="POST">SUBMIT</button>
           </div>
         </div>
       </div>
