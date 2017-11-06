@@ -116,6 +116,15 @@ a.button {
   font-weight: 700;
 }
 
+button.button {
+  font-family: 'Raleway', sans-serif;
+  /*margin-top: 10px;*/
+  padding: 5px 50px;
+  background-color: #343377;
+  color: #ffffff;
+  font-weight: 700;
+}
+
 input.input {
   max-width: 400px;
 }
@@ -150,7 +159,6 @@ label.label {
 
 footer.footer.is-info {
   position: absolute;
-  position: fixed;
   padding: 0;
   margin: 0;
   right: 0;
