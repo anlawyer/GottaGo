@@ -19,16 +19,8 @@ $(document).ready(function () {
     $.post('/api/new/restroom', newRestroom, function () {
       alert('Restroom added!');
     })
-    .then(landingPage);
-
-    // send user back to landing page
-    function landingPage () {
-      $.get('/landing_list');
-    }
-
-    // $name.val('');
-    // $location.val('');
-    // // $type.val('');
-    // $comments.val('');
+    .then(function (data) {
+      window.location = data.redirectUrl;
+    });
   }
 });

@@ -10,11 +10,9 @@ module.exports = function (app) {
   });
 
   app.post('/api/new/restroom', function (req, res) {
-    db.restroom.create(
-      req.body
-  )
+    db.restroom.create(req.body)
     .then(function (data) {
-      res.json(data);
+      res.send({err: 0, redirectUrl: '/landing_list'});
     });
   });
 
