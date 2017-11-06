@@ -10,32 +10,17 @@ module.exports = function (app) {
   });
 
   app.post('/api/new/restroom', function (req, res) {
-    console.log(req.body + 'line 13 of api-routes');
-    db.restroom.create(
-      req.body
-      // {
-      //   name: req.body.name,
-      //   location: req.body.location,
-      //   category: req.body.category,
-      //   comments: req.body.comments
-      //   // createdAt: req.body.createdAt,
-      //   // updatedAt: req.body.updatedAt
-      // }
-  )
+    db.restroom.create(req.body)
     .then(function (data) {
-      res.json(data);
+      res.send({err: 0, redirectUrl: '/landing_list'});
     });
   });
 
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
-    db.users.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password
-    })
+    db.User.create(req.body)
     .then(function (data) {
-      res.json(data);
+      res.send({err: 0, redirectUrl: '/landing_list'});
     });
   });
 };

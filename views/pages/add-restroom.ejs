@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <form name="form1" method="POST" action="/api/new/restroom">
+    <form name="form1" method="POST" action="/landing_list">
     <div class="columns">
       <div class="column">
         <div class="field">
@@ -39,15 +39,15 @@
           <div class="control">
             <label class="label">SELECT CATEGORY</label>
             <label class="radio">
-              <input type="radio" name="question">
+              <input type="radio" name="question" value='0'>
               Gas Station
             </label>
             <label class="radio">
-              <input type="radio" name="question">
+              <input type="radio" name="question" value='1'>
               Restaurant
             </label>
             <label class="radio">
-              <input type="radio" name="question">
+              <input type="radio" name="question" value='2'>
               Other
             </label>
           </div>
@@ -71,7 +71,7 @@
       <div class="column">
         <div class="field">
           <div  class="control">
-            <button class="button" id="sumbit" type="submit" method="POST">SUBMIT</button>
+            <input class="button" id="submit" type="submit" method="POST"></input>
           </div>
         </div>
       </div>
