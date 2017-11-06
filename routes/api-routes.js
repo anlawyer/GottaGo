@@ -31,7 +31,7 @@ module.exports = function (app) {
         username: req.body.username
       }
     }).then(function (data) {
-      if (!data.username) {
+      if (data == null) {
         res.send({user: false});
       } else {
         res.send({user: true});
