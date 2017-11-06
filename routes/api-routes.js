@@ -12,7 +12,7 @@ module.exports = function (app) {
   app.post('/api/new/restroom', function (req, res) {
     db.restroom.create(req.body)
     .then(function (data) {
-      res.send({err: 0, redirectUrl: '/landing_list'});
+      res.json(data);
     });
   });
 
@@ -20,7 +20,22 @@ module.exports = function (app) {
     console.log(req.body);
     db.User.create(req.body)
     .then(function (data) {
-      res.send({err: 0, redirectUrl: '/landing_list'});
+      res.json(data);
+    });
+  });
+
+  app.post('/api/check-user', function (req, res) {
+    console.log(req.body);
+    db.User.findOne({
+      where: {
+        username: req.body.username
+      }
+    }).then(function (data) {
+      if (!data.username) {
+        res.send({user: false});
+      } else {
+        res.send({user: true});
+      }
     });
   });
 };
