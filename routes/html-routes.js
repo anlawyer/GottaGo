@@ -1,4 +1,5 @@
 var express = require('express');
+var db = require('../models')
 
 module.exports = function (app) {
 
@@ -23,8 +24,11 @@ module.exports = function (app) {
   });
 
   app.get('/landing_list', function (req,res) {
-    res.render('pages/landing_list');
-  })
+    db.restroom.findAll({})
+    .then(function (data) {
+      res.render('pages/landing_list', {list:data})
+    });
+  });
 
   app.get('/addRestroom', function (req,res) {
     res.render('pages/add-restroom');
