@@ -10,17 +10,8 @@ module.exports = function (app) {
   });
 
   app.post('/api/new/restroom', function (req, res) {
-    console.log(req.body + 'line 13 of api-routes');
     db.restroom.create(
       req.body
-      // {
-      //   name: req.body.name,
-      //   location: req.body.location,
-      //   category: req.body.category,
-      //   comments: req.body.comments
-      //   // createdAt: req.body.createdAt,
-      //   // updatedAt: req.body.updatedAt
-      // }
   )
     .then(function (data) {
       res.json(data);
