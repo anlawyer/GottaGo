@@ -18,13 +18,9 @@ module.exports = function (app) {
 
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
-    db.users.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password
-    })
+    db.User.create(req.body)
     .then(function (data) {
-      res.json(data);
+      res.send({err: 0, redirectUrl: '/landing_list'});
     });
   });
 };
