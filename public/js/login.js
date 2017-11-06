@@ -8,15 +8,17 @@ $(document).ready(function () {
   function submitUser (event) {
     event.preventDefault();
 
-    // somewhere in this code I believe we should be able to validate the user's login info
-    // perhaps that is a backend function
+    var currUser = {
+      username: $username.val().trim(),
+      password: $password.val()
+    };
 
-    $.get('api/check-user', function () {
-      // somehow communicate with backend? is that where the validation happens?
-      // then on success, we then allow them to log in?
-    })
-    .then(function (data) {
-      window.location = data.redirectUrl;
+    $.post('/api/check-user', currUser, function (res) {
+      if (res.user === null) {
+        alert('No user exists, sign up as new user.')
+      } else {
+        window.location.href = '/landing_list';
+      }
     });
   }
 });

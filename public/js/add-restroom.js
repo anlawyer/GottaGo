@@ -18,9 +18,10 @@ $(document).ready(function () {
 
     $.post('/api/new/restroom', newRestroom, function () {
       alert('Restroom added!');
-    })
-    .then(function (data) {
-      window.location = data.redirectUrl;
+      window.location.href = '/landing_list';
     });
+    // .then(function (data) {
+    //   window.location = data.redirectUrl;
+    // });
   }
 });

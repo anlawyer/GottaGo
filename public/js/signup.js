@@ -16,9 +16,10 @@ $(document).ready(function () {
     };
 
     $.post('api/new/user', newUser, function () {
-    })
-    .then(function (data) {
-      window.location = data.redirectUrl;
+      window.location.href = '/landing_list';
     });
+    // .then(function (data) {
+    //   window.location = data.redirectUrl;
+    // });
   }
 });
