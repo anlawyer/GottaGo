@@ -8,7 +8,8 @@ $(document).ready(function () {
 
   function submitUser (event) {
     event.preventDefault();
-
+    // we should have some way to validate user input as they type or submit
+    // i.e. if username is already taken, don't let them make one
     var newUser = {
       username: $username.val().trim(),
       email: $email.val().trim(),
@@ -18,8 +19,5 @@ $(document).ready(function () {
     $.post('api/new/user', newUser, function () {
       window.location.href = '/landing_list';
     });
-    // .then(function (data) {
-    //   window.location = data.redirectUrl;
-    // });
   }
 });

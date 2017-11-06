@@ -12,10 +12,11 @@ $(document).ready(function () {
       username: $username.val().trim(),
       password: $password.val()
     };
-
+    // this only works if user does exist (no password validation yet, only checks username)
+    // sql throws an error if user does not exist and won't complete function
     $.post('/api/check-user', currUser, function (res) {
-      if (res.user === null) {
-        alert('No user exists, sign up as new user.')
+      if (!res.user) {
+        alert('No user exists, sign up as new user.');
       } else {
         window.location.href = '/landing_list';
       }
