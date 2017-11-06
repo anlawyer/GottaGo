@@ -1,16 +1,17 @@
-  
+
   <div id="location-name" class="title is-5">
-   
+   <%= list[i].dataValues.name %>
   </div>
   <div id="distance" class="subtitle is-6">
-
+   distance: who can say
   </div>
-  <div class="subtitle is-6">
-   <a id="address" href=""></a>
+  <div id="address" class="subtitle is-6">
+   <a href=""><%= list[i].dataValues.location %></a>
   </div>
-  <div class="subtitle is-5">
-   <h6>category: <span id="category"></span></h6>
+  <div id="category" class="subtitle is-5">
+   <h6>category number: <span> <%= list[i].dataValues.category %> </span></h6>
   </div>
+  
   <nav class="level is-mobile">
     <div class="level-left">
       <a class="level-item">
