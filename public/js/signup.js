@@ -1,22 +1,23 @@
-$(document).on('click', '#submit', submitUser);
+$(document).ready(function () {
 
-var $username = $('#username');
-var $email = $('#email');
-var $password = $('#password');
+  var $username = $('#username');
+  var $email = $('#email');
+  var $password = $('#confirm-password');
 
-function submitUser () {
-  event.preventDefault();
-  var newUser = {
-    username: $name.val().trim(),
-    email: $location.val().trim(),
-    password: $type.val(),
-    // createdAt: req.body.createdAt,
-    // updatedAt: req.body.updatedAt
-  };
-  $.post('api/new/user', newUser, function () {
-    alert('Welcome!');
-  });
-  $username.val('');
-  $email.val('');
-  $password.val('');
-}
+  $(document).on('click', '#submit', submitUser);
+
+  function submitUser (event) {
+    event.preventDefault();
+    // we should have some way to validate user input as they type or submit
+    // i.e. if username is already taken, don't let them make one
+    var newUser = {
+      username: $username.val().trim(),
+      email: $email.val().trim(),
+      password: $password.val()
+    };
+
+    $.post('api/new/user', newUser, function () {
+      window.location.href = '/landing_list';
+    });
+  }
+});

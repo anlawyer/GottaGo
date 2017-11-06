@@ -2,6 +2,7 @@
 <html>
   <head>
     <% include ../partials/head %>
+    <script src="./js/login.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -15,39 +16,41 @@
         </div>
       </div>
     </div>
-   
-    <div class="columns">
-      <div class="column">
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input id="username" class="input" type="text" placeholder="your username">
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="columns">
-      <div class="column">
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input id="password" class="input" type="password" placeholder="enter password">
+    <form name="form2" method="post" action="/login">
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input id="username" class="input" type="text" name="username" placeholder="your username">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="columns">
-      <div class="column">
-        <div class="field">
-          <div id="sumbit" class="control">
-            <a class="button" type="submit" method="PUT">Log in</a>
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input id="password" class="input" type="password" name="password" placeholder="enter password">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <div class="control">
+              <button class="button" id="submit" type="submit">Log in</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
 
     <footer>
       <% include ../partials/footer %>
