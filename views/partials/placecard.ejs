@@ -9,9 +9,23 @@
    <a href=""><%= list[i].dataValues.location %></a>
   </div>
   <div id="category" class="subtitle is-5">
-   <h6>category number: <span> <%= list[i].dataValues.category %> </span></h6>
+   <h6>category number: <span>
+     <% switch (list[i].dataValues.category) {
+       case 0: %>
+
+       Gas Station
+       <% break; %>
+       <% case 1: %>
+       Restaurant
+       <% break; %>
+       <% default: %>
+       Other
+     <% } %>
+
+
+   </span></h6>
   </div>
-  
+
   <nav class="level is-mobile">
     <div class="level-left">
       <a class="level-item">
