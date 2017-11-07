@@ -9,9 +9,9 @@
       <header>
         <% include ../partials/header %>
       </header>
-      
+
       <div class="content">
-        
+
         <div class="columns">
           <div id="title" class="column has-text-centered">
             <div class="">
@@ -19,51 +19,54 @@
             </div>
           </div>
         </div>
-        
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Username</label>
-              <div class="control">
-                <input id="username" class="input" type="text" placeholder="your username">
-              </div>
-              <label class="label">Email</label>
-              <div class="control">
-                <input id="email" class="input" type="email" placeholder="your email">
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Current password</label>
-              <div class="control">
-                <input id="current-password" class="input" type="password" placeholder="enter password">
-              </div>
-              <label class="label">New password</label>
-              <div class="control">
-                <input id="new-password" class="input" type="password" placeholder="enter password">
-              </div>
-              <label class="label">Re-type new password</label>
-              <div class="control">
-                <input id="confirm-new-password" class="input" type="password" placeholder="confirm password">
+        <form name="form3" method="put" action="/account">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                  <input id="username" class="input" type="text" placeholder="your username">
+                </div>
+                <label class="label">Email</label>
+                <div class="control">
+                  <input id="email" class="input" type="email" placeholder="your email">
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <div id="sumbit" class="control">
-                <a class="button" type="submit" method="PUT">Update</a>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Current password</label>
+                <div class="control">
+                  <input id="current-password" class="input" type="password" placeholder="enter password">
+                </div>
+                <label class="label">New password</label>
+                <div class="control">
+                  <input id="new-password" class="input" type="password" placeholder="enter password">
+                </div>
+                <label class="label">Re-type new password</label>
+                <div class="control">
+                  <input id="confirm-new-password" class="input" type="password" placeholder="confirm password">
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <div  class="control">
+                  <a class="button" id="submit" type="submit" method="PUT">Update</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
+
       <footer>
         <% include ../partials/footer %>
       </footer>
