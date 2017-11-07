@@ -73,16 +73,20 @@ li {
 div#title.box {
 	border-radius: 0;
   margin: 0;
+  padding: 0;
 }
 
 article {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #eeeeee;
-
+  padding: 15px 20px;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 1px 1px;
 }
 
-h6 {
+article:hover {
+  background-color: #eeeeee;
+}
+
+#category h6 {
 	color: #343377;
  	font-family: 'Raleway', sans-serif;
   margin: 0;
@@ -101,19 +105,24 @@ div.subtitle.is-6 {
  	font-weight: 500;
 }
 
+div#category.subtitle.is-5 {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
 .subtitle.is-5:non(:last-child) {
 	margin: 0;
-	padding-bottom: 5px;
+	/*padding-bottom: 5px;*/
 }
 
 .subtitle.is-5 span {
-	color: #f78255;
+	color: #42C888;
  	font-family: 'Raleway', sans-serif;
 	font-weight: 700;
 }
 
 .title.is-5 {
-	padding-bottom: 5px;
+	/*padding-bottom: 5px;*/
 	color: #343377;
  	font-family: 'Raleway', sans-serif;
 }

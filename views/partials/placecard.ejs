@@ -1,15 +1,16 @@
 
   <div id="location-name" class="title is-5">
    <%= list[i].dataValues.name %>
+
   </div>
   <div id="distance" class="subtitle is-6">
-   distance: who can say
+   distance: <span id="milage"> <% include ../partials/distance.ejs %></span>
   </div>
   <div id="address" class="subtitle is-6">
    <a href=""><%= list[i].dataValues.location %></a>
   </div>
   <div id="category" class="subtitle is-5">
-   <h6>category number: <span>
+   <h6>category: <span>
      <% switch (list[i].dataValues.category) {
        case 0: %>
 
@@ -44,3 +45,4 @@
       </a>
     </div>
   </nav>
+    
