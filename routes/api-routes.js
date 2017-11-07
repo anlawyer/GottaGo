@@ -8,6 +8,8 @@ var authController = require('../controller/authcontroller.js');
 module.exports = function (app) {
   app.get('/signup', authController.signup);
 
+  app.get('/logout', authController.logout);
+
   app.get('/api/restrooms', function (req, res) {
     db.restroom.findAll({})
     .then(function (data) {
@@ -29,6 +31,12 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+  function isLoggedIn (req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+      // res.redirect('/signin');
+    }
+  }
 
   // not sure if this should go in this file or in login.js...
 //   passport.use(new LocalStrategy(
