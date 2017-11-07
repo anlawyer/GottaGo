@@ -1,113 +1,43 @@
 <script>
-// 	var otherMarkers = [
-// 	{lat: 38.701399, lng: -121.253931}, 
-// 	{lat: 38.687836, lng: -121.263709}, 
-// 	{lat: 38.709002, lng: -121.291317}]
 
-// 	var gasStationsMarker = [
-// 	{lat: 38.703479, lng: -121.271457}, 
-// 	{lat: 38.678641, lng: -121.272114}, 
-// 	{lat: 38.706891, lng: -121.290722}
-// 	]
-
-// function addOthers() {
-// 	for (var i = 0; i < otherMarkers.length; i++) {
-// 		addMarker(otherMarkers[i])
-// 	}
-// }
-// function addGasStations() {
-// 	for (var i = 0; i < gasStationsMarker.length; i++) {
-// 		addMarker(gasStationsMarker[i])
-// 	}
-// }
-
-function getLocation() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(userLocation);
-		// console.log(coords);
-	} else {
-		alert("Looks like geolocation is not supported.");
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(userLocation);
+			// console.log(coords);
+		} else {
+			alert("Looks like geolocation is not supported.");
+		}
 	}
-}
 
-getLocation();
+	getLocation();
 
-function userLocation(position) {
-	var lat = position.coords.latitude;
-	var lng = position.coords.longitude;
-	var latLng = new google.maps.LatLng(lat, lng);
-	
-	console.log(lat);
-	console.log(lng);
+	function userLocation(position) {
+		var lat = position.coords.latitude;
+		var lng = position.coords.longitude;
+		var latLng = new google.maps.LatLng(lat, lng);
+		
+		console.log(lat);
+		console.log(lng);
 
-	initMap(latLng);
-}
+		initMap(latLng);
+	}
 
-function initMap(latLng) {
-	var options = {
-		center: latLng,
-		zoom: 12,
-		mapTypeId: "roadmap"
-	};
+	function initMap(latLng) {
+		var options = {
+			center: latLng,
+			zoom: 12,
+			mapTypeId: "roadmap"
+		};
 
-	var map = new google.maps.Map(document.getElementById("map"), options);
+		var map = new google.maps.Map(document.getElementById("map"), options);
 
-	var marker = new google.maps.Marker({
-			  position: latLng,
-			  map: map,
-			  icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png"
-	});
+		var marker = new google.maps.Marker({
+		  position: latLng,
+		  map: map,
+		  icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png"
+		  });
+	}
 
-	// var infoWindow = new google.maps.InfoWindow({
-	// 	content: "<h3>we're here )))</h3>"
-	// });
-
-	// marker.addListener("click", function() {
-	// 	infoWindow.open(map, marker);
-	// });
-
-	// var otherMarkers = [
-	// 	{lat: 38.701399, lng: -121.253931}, 
-	// 	{lat: 38.687836, lng: -121.263709}, 
-	// 	{lat: 38.709002, lng: -121.291317}
-	// ]
-
-	// var gasStationsMarker = [
-	// 	{
-	// 		coords: {lat: 38.703479, lng: -121.271457}, 
-	// 		iconImage: 
-	// 	{lat: 38.678641, lng: -121.272114}, 
-	// 	{lat: 38.706891, lng: -121.290722}
-	// ]
-
-	// function addMarker(props) {
-	// 	var marker = new google.maps.Marker({
-	// 	  position: props.coords,
-	// 	  map: map,
-	// 	  icon: props.iconImage
-	// 	});
-
-	// 	if(props.iconImage) {
-	// 		marker.setIcon(props.iconImage);
-	// 	}
-	// }
-
-	// addMarker({
-	// 	coords: {lat: 38.687836, lng: -121.263709},
-	// 	iconImage: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png"
-	// });
-}
-
-
-	// var marker = new google.maps.Marker({
-	// 	position: coords,
-	// 	map: map,
-	// 	icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/green-dot.png"
-	// })
-
-
-	// addOthers();
-	// addGasStations();
 </script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY&callback=initMap">

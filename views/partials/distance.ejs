@@ -1,0 +1,47 @@
+<script>
+	var latLng;
+	var lat;
+	var lng;
+
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(userLocation);
+			// console.log(coords);
+		} else {
+			alert("Looks like geolocation is not supported.");
+		}
+	}
+
+	getLocation();
+
+	function userLocation(position) {
+		var lat = position.coords.latitude;
+		var lng = position.coords.longitude;
+		var latLng = new google.maps.LatLng(lat, lng);
+		
+		console.log(lat);
+		console.log(lng);
+
+		geocode();
+
+		function geocode() {
+			var key = "AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY";
+			var location = list[i].dataValues.location;
+			axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + lat + "," + lng + "&destinations=" + location + "&key=" + key 
+			).then(function(response) {
+
+			var distance = response.data.rows[0].elements[0].distance.text;
+			console.log(distance);
+
+			document.getElementById("milage").innerHTML = distance;
+
+			})
+			.catch(function(error) {
+				console.log(error)
+			})
+		}
+	}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY">
+</script>
