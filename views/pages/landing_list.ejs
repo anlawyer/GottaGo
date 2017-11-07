@@ -4,37 +4,43 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <header>
-      <% include ../partials/header %>
-    </header>
+    <div class="wrapper">
+      <header>
+        <% include ../partials/header %>
+      </header>
 
-    <div class="tabs is-toggle is-fullwidth">
-      <ul>
-        <li>
-          <a class="view" href="/landing_map">
-            <span class="icon is-small"><i class="fa fa-map"></i></span>
-            <span>Map</span>
-          </a>
-        </li>
-        <li>
-          <a class="view" href="/landing_list">
-            <span class="icon is-small"><i class="fa fa-list"></i></span>
-            <span>List</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    
-    <div id="title" class="box">
-      <% for (var i = 0; i < list.length; i++) { %>
-        <article>
-          <% include ../partials/placecard %>
-        </article>
-      <% } %>
-    </div>
+        <div class="tabs is-toggle is-fullwidth">
+          <ul>
+            <li>
+              <a class="view" href="/landing_map">
+                <span class="icon is-small"><i class="fa fa-map"></i></span>
+                <span>Map</span>
+              </a>
+            </li>
+            <li>
+              <a class="view" href="/landing_list">
+                <span class="icon is-small"><i class="fa fa-list"></i></span>
+                <span>List</span>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-    <footer>
-      <% include ../partials/footer %>
-    </footer>
+        <div class="content">
+          
+          <div id="title" class="box">
+            <% for (var i = 0; i < list.length; i++) { %>
+              <article>
+                <% include ../partials/placecard %>
+              </article>
+            <% } %>
+          </div>
+
+        </div> 
+
+      <footer>
+        <% include ../partials/footer %>
+      </footer>
+    </div>
   </body>
 </html>

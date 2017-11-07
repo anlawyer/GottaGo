@@ -6,54 +6,61 @@
   </head>
 
   <body>
+   <div class="wrapper">
+
     <header>
       <% include ../partials/header %>
     </header>
-    <div class="columns">
-      <div id="title" class="column has-text-centered">
-        <div class="">
-          <h1>WELCOME BACK!</h1>
+
+    <div class="content">
+
+      <div class="columns">
+        <div id="title" class="column has-text-centered">
+          <div class="">
+            <h1>WELCOME BACK!</h1>
+          </div>
         </div>
       </div>
+
+      <form name="form2" method="post" action="/login">
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control">
+                <input id="username" class="input" type="text" name="username" placeholder="your username">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input id="password" class="input" type="password" name="password" placeholder="enter password">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <div class="control">
+                <button class="button" id="submit" type="submit">Log in</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </form>
+  
+      <footer>
+        <% include ../partials/footer %>
+      </footer>
     </div>
-
-    <form name="form2" method="post" action="/login">
-      <div class="columns">
-        <div class="column">
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control">
-              <input id="username" class="input" type="text" name="username" placeholder="your username">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column">
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-              <input id="password" class="input" type="password" name="password" placeholder="enter password">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns">
-        <div class="column">
-          <div class="field">
-            <div class="control">
-              <button class="button" id="submit" type="submit">Log in</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </form>
-
-    <footer>
-      <% include ../partials/footer %>
-    </footer>
+   </div>
   </body>
 </html>
