@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   var $name = $('#location-name');
   var $location = $('#address');
   var $comments = $('#comment');

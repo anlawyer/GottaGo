@@ -1,10 +1,8 @@
 $(document).ready(function () {
-
   var $username = $('#username');
   var $password = $('#password');
 
   $(document).on('click', '#submit', submitUser);
-
   function submitUser (event) {
     event.preventDefault();
 
@@ -19,7 +17,7 @@ $(document).ready(function () {
     // the wrong file? (currently in api-routes, should it be here?)
     $.post('/api/check-user', currUser, function (res) {
       if (!res.user) {
-        alert('No user exists, sign up as new user.');
+        console.log('No user exists, sign up as new user.');
       } else {
         window.location.href = '/landing_list';
       }
