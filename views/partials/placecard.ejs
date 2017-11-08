@@ -1,13 +1,12 @@
 
   <div id="location-name" class="title is-5">
    <%= list[i].dataValues.name %>
-
   </div>
-  <div id="distance" class="subtitle is-6">
-   distance: <span id="milage"> <% include ../partials/distance.ejs %></span>
+  <div class="distance" class="subtitle is-6">
+   distance: <span class="milage"></span>
   </div>
   <div id="address" class="subtitle is-6">
-   <a href=""><%= list[i].dataValues.location %></a>
+   <a class="address-link"><%= list[i].dataValues.location %></a>
   </div>
   <div id="category" class="subtitle is-5">
    <h6>category: <span>
@@ -22,7 +21,6 @@
        <% default: %>
        Other
      <% } %>
-
 
    </span></h6>
   </div>

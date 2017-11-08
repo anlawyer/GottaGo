@@ -24,6 +24,13 @@ module.exports = function (app) {
     });
   });
 
+  app.get('/api/landing_list', function (req,res) {
+    db.restroom.findAll({})
+    .then(function (data) {
+      res.json(data);
+    });
+  });
+
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
     db.User.create(req.body)
