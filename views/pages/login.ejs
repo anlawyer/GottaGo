@@ -30,6 +30,11 @@
               <div class="control">
                 <input id="username" class="input" type="text" name="username" placeholder="your username">
               </div>
+              <p class="help is-danger" id="username-warning" style="display:none">
+                Username does not exist. Try again!
+                <br>
+                Or, go to signup <a href='/signup'>here</a>.
+              </p>
             </div>
           </div>
         </div>
@@ -41,6 +46,9 @@
               <div class="control">
                 <input id="password" class="input" type="password" name="password" placeholder="enter password">
               </div>
+              <p class="help is-danger" id="password-warning" style="display:none">
+                Password is incorrect.
+              </p>
             </div>
           </div>
         </div>
@@ -56,7 +64,7 @@
         </div>
         </div>
       </form>
-  
+
       <footer>
         <% include ../partials/footer %>
       </footer>

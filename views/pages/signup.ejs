@@ -31,10 +31,15 @@
               <div class="control">
                 <input id="username" class="input" type="text" placeholder="your username">
               </div>
-              <label class="label">Email</label>
+              <p class="help is-danger" id="username-warning" style="display:none">
+                This username is already taken. Try another!
+                <br>
+                Or, login <a href='/login'>here</a>.
+              </p>
+              <!-- <label class="label">Email</label>
               <div class="control">
                 <input id="email" class="input" type="email" placeholder="your email">
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -51,7 +56,7 @@
                 <input id="confirm-password" class="input" type="password" placeholder="confirm password">
               </div>
               <p class="help is-danger" id="pass-mismatch" style="display:none">
-                There's a password mismatch
+                There's a password mismatch. Try again.
               </p>
             </div>
           </div>
@@ -64,7 +69,7 @@
                 <button class="button" id="submit" type="submit" method="POST">Sign up</button>
               </div>
               <p class="help is-danger" id="input-warning" style="display:none">
-                Just use letters and numbers for the username and password
+                Just use letters and numbers for the username and password.
               </p>
             </div>
           </div>
