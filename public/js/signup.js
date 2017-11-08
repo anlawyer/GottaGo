@@ -37,9 +37,9 @@ $(document).ready(function () {
     if (passwordMatch($("#password").val(), newUser.password)) {
       $("#pass-mismatch").hide();
       if (checkValid(newUser.username, newUser.password)) {
-        $.post('api/new/user', newUser, function () {
-          if (!res.user) {
-            alert('No user exists, sign up as new user.');
+        $.post('api/new/user', newUser, function (res) {
+          if (res.user) {
+            alert('User already exists.');
           } else {
             window.location.href = '/landing_list';
           }
