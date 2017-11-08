@@ -16,9 +16,13 @@ $(document).ready(function () {
       comments: $comments.val().trim()
     };
 
-    $.post('/api/new/restroom', newRestroom, function () {
-      alert('Restroom added!');
-      window.location.href = '/landing_list';
-    });
+    if ((newRestroom.name.length > 0) && (newRestroom.location.length > 0) && (newRestroom.category > -1)) {
+      $.post('/api/new/restroom', newRestroom, function () {
+        alert('Restroom added!');
+        window.location.href = '/landing_list';
+      });
+    } else {
+      $("#rest-wrong").show();
+    }
   }
 });
