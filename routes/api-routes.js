@@ -1,7 +1,7 @@
 
 var db = require('../models');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+// var passport = require('passport');
+// var LocalStrategy = require('passport-local').Strategy;
 
 var authController = require('../controller/authcontroller.js');
 
@@ -26,17 +26,34 @@ module.exports = function (app) {
 
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
-    db.User.create(req.body)
+    db.User.findOne({
+      where: {
+        username: req.body.username
+      }
+    })
     .then(function (data) {
-      res.json(data);
+      console.log('after findOne: ' + data);
+      if (data.length === 0) {
+        db.User.create(req.body)
+        .then(function (data) {
+          console.log('after create: ' + data);
+          res.json(data);
+        });
+      } else {
+        console.log('User exists.');
+        res.send({user: false});
+      }
+    }).catch(function (error) {
+      res.render(error);
     });
   });
-  function isLoggedIn (req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-      // res.redirect('/signin');
-    }
-  }
+
+  // function isLoggedIn (req, res, next) {
+  //   if (req.isAuthenticated()) {
+  //     return next();
+  //     // res.redirect('/signin');
+  //   }
+  // }
 
   // not sure if this should go in this file or in login.js...
 //   passport.use(new LocalStrategy(
@@ -66,18 +83,21 @@ module.exports = function (app) {
   //     failureFlash: true })
   // );
 
-  // function (req, res) {
-  //   console.log(req.body);
-  //   db.User.findOne({
-  //     where: {
-  //       username: req.body.username
-  //     }
-  //   }).then(function (data) {
-  //     if (data == null) {
-  //       res.send({user: false});
-  //     } else {
-  //       res.send({user: true});
-  //     }
-  //   });
-  // });
+  // checking if user logging in exists in the database
+  app.post('/api/check-user',
+    function (req, res) {
+      console.log(req.body);
+      db.User.findOne({
+        where: {
+          username: req.body.username,
+          password: req.body.password
+        }
+      }).then(function (data) {
+        if (data == null) {
+          res.send({user: false});
+        } else {
+          res.send({user: true});
+        }
+      });
+    });
 };
