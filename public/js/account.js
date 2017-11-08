@@ -8,26 +8,56 @@ $(document).ready(function () {
 
   $(document).on('click', '#submit', updateUser);
 
+  var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+
+  function checkValid (password) {
+    for (var i = 0; i < specialChars.length; i++) {
+      if ((password.indexOf(specialChars[i]) > -1)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function passwordMatch (pass, confirm) {
+    if (pass === confirm) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function updateUser (event) {
     event.preventDefault();
 
     var updateInfo = {
       username: $username.val().trim(),
       old_password: $old_password.val(),
-      password: $confirm_password.val(),
-      updatedAt: $.now()
+      password: $confirm_password.val()
+      // updatedAt: $.now()
     };
 
-    $.ajax({
-      method: 'PUT',
-      url: '/api/update/user',
-      data: updateInfo
-    }).done(function (res) {
-      if (!res.user) {
-        console.log('Username or password does not match. Try again.');
+    if (passwordMatch ($new_password.val(), $confirm_password.val())) {
+      $('#pass-mismatch').hide();
+      $('#user-pass-mismatch').hide();
+      if (checkValid(updateInfo.password)) {
+        $.ajax({
+          method: 'PUT',
+          url: '/api/update/user',
+          data: updateInfo
+        }).done(function (res) {
+          if (!res.user) {
+            $('#user-pass-mismatch').show();
+          } else {
+            alert('Password has been updated!')
+            window.location.href = '/landing_list';
+          }
+        });
       } else {
-        window.location.href = '/landing_list';
+        $('#input-warning').show();
       }
-    });
+    } else {
+      $('#pass-mismatch').show();
+    }
   }
 });
