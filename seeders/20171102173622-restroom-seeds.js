@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('restroom',
       [{
         name: 'Starbucks',
-        location: 'Ashby and Telegraph',
+        location: '3001 Telegraph Avenue, Berkeley',
         category: '1',
         comments: 'Only moderately gross',
         createdAt: '2017-11-02',
@@ -13,7 +13,7 @@ module.exports = {
       },
       {
         name: 'Ohlone Park',
-        location: 'Hearst Ave.',
+        location: 'Ohlone Park, Milvia Street, Berkeley',
         category: '3',
         comments: 'scary at night',
         createdAt: '2017-11-02',
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         name: 'Claremont Library',
-        location: 'Benvenue and Ashby',
+        location: '2940 Benvenue Ave, Berkeley',
         category: '2',
         comments: 'Hard to find',
         createdAt: '2017-11-03',
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         name: 'Safeway',
-        location: 'College and Claremont',
+        location: '6310 College Ave, Oakland',
         category: '2',
         comments: 'Super gross - only use in an emergency',
         createdAt: '2017-11-03',
@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         name: 'Terra Mia Coffee',
-        location: '20th and Braodway',
+        location: '2001 Broadway, Oakland',
         category: '1',
         comments: 'Hard to find',
         createdAt: '2017-11-03',
@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         name: 'Chevron',
-        location: 'Shattuck and Ashby',
+        location: '2996 Shattuck Ave, Berkeley',
         category: '0',
         comments: '',
         createdAt: '2017-11-03',
@@ -53,7 +53,7 @@ module.exports = {
       },
       {
         name: 'Mobil',
-        location: 'MLK Way and 55th',
+        location: '5425 Martin Luther King Jr Way, Oakland',
         category: '0',
         comments: 'Good snacks too',
         createdAt: '2017-11-03',
