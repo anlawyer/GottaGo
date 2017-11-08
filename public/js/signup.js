@@ -6,40 +6,43 @@ $(document).ready(function () {
 
   $(document).on('click', '#submit', submitUser);
 
-  var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-="
+  var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
 
-  function checkValid(username,password) {
+  function checkValid (username, password) {
     for (var i = 0; i < specialChars.length; i++) {
       if ((username.indexOf(specialChars[i]) > -1) || (password.indexOf(specialChars[i]) > -1)) {
         return false;
       }
     }
     return true;
-  };
+  }
 
-  function passwordMatch(pass,confirm) {
+  function passwordMatch (pass, confirm) {
     if (pass === confirm) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 
   function submitUser (event) {
     event.preventDefault();
-    // we should have some way to validate user input as they type or submit
-    // i.e. if username is already taken, don't let them make one
+
     var newUser = {
       username: $username.val().trim(),
       email: $email.val().trim(),
       password: $password.val()
     };
 
-    if (passwordMatch($("#password").val(),newUser.password)) {
+    if (passwordMatch($("#password").val(), newUser.password)) {
       $("#pass-mismatch").hide();
-      if (checkValid(newUser.username,newUser.password)) {
+      if (checkValid(newUser.username, newUser.password)) {
         $.post('api/new/user', newUser, function () {
-          window.location.href = '/landing_list';
+          if (!res.user) {
+            alert('No user exists, sign up as new user.');
+          } else {
+            window.location.href = '/landing_list';
+          }
         });
       } else {
         $("#input-warning").show();
@@ -47,7 +50,5 @@ $(document).ready(function () {
     } else {
       $("#pass-mismatch").show();
     }
-
-
   }
 });
