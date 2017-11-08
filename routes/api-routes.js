@@ -107,4 +107,21 @@ module.exports = function (app) {
   //     failureRedirect: '/login',
   //     failureFlash: true })
   // );
+
+  app.put('/api/update/user', function (req, res) {
+    console.log(req.body);
+    db.User.update(req.body.password, {
+      where: {
+        username: req.body.username,
+        password: req.body.old_password
+      }
+    })
+    .then(function (data) {
+      if (data == null) {
+        res.send({user: false});
+      } else {
+        res.send({user: true});
+      }
+    });
+  });
 };
