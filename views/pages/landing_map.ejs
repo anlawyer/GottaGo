@@ -5,6 +5,7 @@
     <% include ../partials/head %>
   </head>
   <body>
+    <div class="wrapper">
     <header>
       <% include ../partials/header %>
     </header>
@@ -24,13 +25,16 @@
         </li>
       </ul>
     </div> 
-   
-    <div id="map">
-      <% include ../partials/map %> 
+
+    <div class="content">
+      <div id="map">
+        <% include ../partials/map %> 
+      </div>
     </div>
-        
+    
     <footer>
       <% include ../partials/footer %>
     </footer>
+   </div>
   </body>
 </html>

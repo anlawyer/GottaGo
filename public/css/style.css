@@ -54,7 +54,7 @@ li {
  	font-family: 'Raleway', sans-serif;
 	font-weight: 700;
 	font-size: 18px;
-	color: #343377;
+	color: #393f60;
 	border: 1px solid #393f60;
 }
 
@@ -87,7 +87,7 @@ article:hover {
 }
 
 #category h6 {
-	color: #343377;
+	color: #393f60;
  	font-family: 'Raleway', sans-serif;
   margin: 0;
 }
@@ -123,8 +123,13 @@ div#category.subtitle.is-5 {
 
 .title.is-5 {
 	/*padding-bottom: 5px;*/
-	color: #343377;
+	color: #393f60;
  	font-family: 'Raleway', sans-serif;
+}
+
+.title.is-5:not(:last-child) {
+  margin-bottom: 0;
+
 }
 
 #distance {
@@ -138,14 +143,19 @@ div.box:not(:last-child) {
 }
 
 nav.level.is-mobile i {
-	color: #343377;
+	color: #393f60;
+}
+
+nav.level.is-mobile {
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 a.button {
   font-family: 'Raleway', sans-serif;
   /*margin-top: 10px;*/
   padding: 10px 50px;
-  background-color: #343377;
+  background-color: #393f60;
   color: #ffffff;
   font-weight: 700;
 }
@@ -154,7 +164,7 @@ button.button {
   font-family: 'Raleway', sans-serif;
   /*margin-top: 10px;*/
   padding: 5px 50px;
-  background-color: #343377;
+  background-color: #393f60;
   color: #ffffff;
   font-weight: 700;
 }
@@ -163,19 +173,28 @@ input.input {
   max-width: 400px;
 }
 
+input#submit.button {
+  font-family: 'Raleway', sans-serif;
+  /*margin-top: 10px;*/
+  padding: 5px 50px;
+  background-color: #393f60;
+  color: #ffffff;
+  font-weight: 700;
+}
+
 #title {
   margin-top: 20px;
 }
 
 div h1 {
-  color: #343377;
+  color: #393f60;
   font-size: 32px;
   font-weight: 500;
   font-family: 'Raleway', sans-serif;
 }
 
 div h2 {
-	color: #343377;
+	color: #393f60;
 	font-size: 20px;
 	font-weight: 500;
 	font-family: 'Raleway', sans-serif;
@@ -186,7 +205,7 @@ nav.navbar.is-info {
 }
 
 label.label {
-  color: #343377;
+  color: #393f60;
   font-family: 'Raleway', sans-serif;
 
 }
