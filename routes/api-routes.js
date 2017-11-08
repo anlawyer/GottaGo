@@ -24,7 +24,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/api/landing_list', function (req,res) {
+  app.get('/api/landing_list', function (req, res) {
     db.restroom.findAll({})
     .then(function (data) {
       res.json(data);
@@ -40,7 +40,7 @@ module.exports = function (app) {
     })
     .then(function (data) {
       console.log('after findOne: ' + data);
-      if (data.length === 0) {
+      if (data == null) {
         db.User.create(req.body)
         .then(function (data) {
           console.log('after create: ' + data);
@@ -48,12 +48,30 @@ module.exports = function (app) {
         });
       } else {
         console.log('User exists.');
-        res.send({user: false});
+        res.send({user: true});
       }
     }).catch(function (error) {
       res.render(error);
     });
   });
+
+  // checking if user logging in exists in the database
+  app.post('/api/check-user',
+    function (req, res) {
+      console.log(req.body);
+      db.User.findOne({
+        where: {
+          username: req.body.username,
+          password: req.body.password
+        }
+      }).then(function (data) {
+        if (data == null) {
+          res.send({user: false});
+        } else {
+          res.send({user: true});
+        }
+      });
+    });
 
   // function isLoggedIn (req, res, next) {
   //   if (req.isAuthenticated()) {
@@ -89,24 +107,6 @@ module.exports = function (app) {
   //     failureRedirect: '/login',
   //     failureFlash: true })
   // );
-
-  // checking if user logging in exists in the database
-  app.post('/api/check-user',
-    function (req, res) {
-      console.log(req.body);
-      db.User.findOne({
-        where: {
-          username: req.body.username,
-          password: req.body.password
-        }
-      }).then(function (data) {
-        if (data == null) {
-          res.send({user: false});
-        } else {
-          res.send({user: true});
-        }
-      });
-    });
 
   app.put('/api/update/user', function (req, res) {
     console.log(req.body);
