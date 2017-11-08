@@ -1,13 +1,12 @@
 
   <div id="location-name" class="title is-5">
    <%= list[i].dataValues.name %>
-
   </div>
-  <div id="distance" class="subtitle is-6">
-   distance: <span id="milage"> <% include ../partials/distance.ejs %></span>
+  <div class="distance" class="subtitle is-6">
+   distance: <span class="milage"></span>
   </div>
   <div id="address" class="subtitle is-6">
-   <a href=""><%= list[i].dataValues.location %></a>
+   <a class="address-link"><%= list[i].dataValues.location %></a>
   </div>
   <div id="category" class="subtitle is-5">
    <h6>category: <span>
@@ -23,7 +22,6 @@
        Other
      <% } %>
 
-
    </span></h6>
   </div>
 
@@ -35,7 +33,7 @@
         <i class="fa fa-star-half-o" aria-hidden="true"></i>
       </a>  
       <a class="level-item">
-        <span class="icon is-small"><i class="fa fa-comments" aria-hidden="true"></i></span>
+        <span class="icon is-small"><i class="fa fa-comments" value='<%= list[i].dataValues.id %>'  aria-hidden="true"></i></span>
       </a>
       <a class="level-item">
         <span class="icon is-small"><i class="fa fa-thumbs-o-up"></i></span>
@@ -45,3 +43,7 @@
       </a>
     </div>
   </nav>
+
+  <div style="display:none" id="<%= list[i].dataValues.id %>">
+    <% include ./comment %>
+  </div>

@@ -2,6 +2,21 @@
 <html>
   <head>
     <% include ../partials/head %>
+    <script>
+      $(function() {
+        getLocation(function(lat, lng) {
+          axios.get("http://localhost:8080/api/landing_list")
+          .then(function(data) {
+            $('.address-link').each(function() {
+              getDistance($(this).html(), lat, lng, $(this));
+            });
+          })
+          .catch(function(error) {
+            if(error) throw error;
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="wrapper">
@@ -27,10 +42,10 @@
         </div>
 
         <div class="content">
-
+          <% include ../partials/distance.ejs %>
           <div id="title" class="box">
             <% for (var i = 0; i < list.length; i++) { %>
-              <article>
+              <article class="pcard" data-card="<%= list[i].dataValues.id %>">
                 <% include ../partials/placecard %>
               </article>
             <% } %>
@@ -42,6 +57,7 @@
         <% include ../partials/footer %>
       </footer>
     </div>
-    
+    <script src="./js/landing-list.js" type="text/javascript"></script>
+
   </body>
 </html>
