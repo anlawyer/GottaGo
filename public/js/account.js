@@ -22,20 +22,20 @@ $(document).ready(function () {
       url: '/api/update/user',
       data: updateInfo
     }).done(function () {
-      alert('Password has been updated!')
+      console.log('Password has been updated!');
     });
   }
 });
 
 // to go in api-routes
-app.put('/api/update/user', function (req, res) {
-  console.log(req.body);
-  db.User.update(req.body.password, {
-    where: {
-      password: req.body.old_password
-    }
-  })
-  .then(function (data) {
-    res.json(data);
-  });
-});
+// app.put('/api/update/user', function (req, res) {
+//   console.log(req.body);
+//   db.User.update(req.body.password, {
+//     where: {
+//       password: req.body.old_password
+//     }
+//   })
+//   .then(function (data) {
+//     res.json(data);
+//   });
+// });
