@@ -7,22 +7,18 @@ var basename  = path.basename(__filename);
 var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
-var mysql     = require('mysql');
-
-var connection;
 
 if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
+  var sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
-  connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: null,
-    database: 'gotta_go_db'
-  });
+  var sequelize = new Sequelize({
+    host: 'yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    dialect: 'mysql',
+    user: 'k7wxmr3ho8unlwiy',
+    password: 'fo8qh5auc93o1lxr',
+    database: 'b04n4kdb1vgrygeu'
+  })
 }
-
-connection.connect();
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
@@ -50,4 +46,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-module.exports = connection;
