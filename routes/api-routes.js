@@ -91,6 +91,8 @@ module.exports = function (app) {
   // make sure user exists and then updates
   app.put('/api/update/user', function (req, res) {
     console.log(req.body);
+    console.log('94', typeof req.body.old_password);
+    console.log('95', typeof req.body.password);
     db.User.findOne({
       where: {
         username: req.body.username,
@@ -111,11 +113,13 @@ module.exports = function (app) {
           }
         })
         .then(function (data) {
-          res.json(data);
+          // res.json(data);
+          console.log(data);
         });
       }
     }).catch(function (error) {
-      res.render(error);
+      // res.render(error);
+      console.log(error);
     });
   });
 };
