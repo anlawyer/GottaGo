@@ -3,12 +3,12 @@ var db = require('../models');
 // var passport = require('passport');
 // var LocalStrategy = require('passport-local').Strategy;
 
-var authController = require('../controller/authcontroller.js');
+// var authController = require('../controller/authcontroller.js');
 
 module.exports = function (app) {
-  app.get('/signup', authController.signup);
-
-  app.get('/logout', authController.logout);
+  // app.get('/signup', authController.signup);
+  //
+  // app.get('/logout', authController.logout);
 
   app.get('/api/restrooms', function (req, res) {
     db.restroom.findAll({})
@@ -31,6 +31,7 @@ module.exports = function (app) {
     });
   });
 
+  // make sure username isn't in use, adds new user if not
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
     db.User.findOne({
@@ -39,11 +40,10 @@ module.exports = function (app) {
       }
     })
     .then(function (data) {
-      console.log('after findOne: ' + data);
       if (data == null) {
+        console.log('User does not exist, creating new user.');
         db.User.create(req.body)
         .then(function (data) {
-          console.log('after create: ' + data);
           res.json(data);
         });
       } else {
@@ -61,17 +61,64 @@ module.exports = function (app) {
       console.log(req.body);
       db.User.findOne({
         where: {
-          username: req.body.username,
-          password: req.body.password
+          username: req.body.username
         }
       }).then(function (data) {
         if (data == null) {
-          res.send({user: false});
+          console.log('no user');
+          res.send({user: 'no user'});
         } else {
-          res.send({user: true});
+          db.User.findOne({
+            where: {
+              username: req.body.username,
+              password: req.body.password
+            }
+          }).then(function (data) {
+            if (data == null) {
+              console.log('wrong password');
+              res.send({user: 'wrong password'});
+            } else {
+              console.log('user + password match');
+              res.send({user: true});
+            }
+          });
         }
+      }).catch(function (error) {
+        res.render(error);
       });
     });
+
+  // make sure user exists and then updates
+  app.put('/api/update/user', function (req, res) {
+    console.log(req.body);
+    db.User.findOne({
+      where: {
+        username: req.body.username,
+        password: req.body.old_password
+      }
+    })
+    .then(function (data) {
+      if (data == null) { // if no match, send err
+        console.log('username/password no match');
+        res.send({user: false});
+      } else { // if match, update
+        // getting error here:
+        // `TypeError: Path must be a string.Cannot create property 'updatedAt' on string '1234'`
+        console.log('match, updating.');
+        db.User.update(req.body.password, {
+          where: {
+            password: req.body.password
+          }
+        })
+        .then(function (data) {
+          res.json(data);
+        });
+      }
+    }).catch(function (error) {
+      res.render(error);
+    });
+  });
+};
 
   // function isLoggedIn (req, res, next) {
   //   if (req.isAuthenticated()) {
@@ -107,21 +154,3 @@ module.exports = function (app) {
   //     failureRedirect: '/login',
   //     failureFlash: true })
   // );
-
-  app.put('/api/update/user', function (req, res) {
-    console.log(req.body);
-    db.User.update(req.body.password, {
-      where: {
-        username: req.body.username,
-        password: req.body.old_password
-      }
-    })
-    .then(function (data) {
-      if (data == null) {
-        res.send({user: false});
-      } else {
-        res.send({user: true});
-      }
-    });
-  });
-};
