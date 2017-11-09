@@ -7,7 +7,6 @@
 	function getLocation(callback) {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(userLocation.bind(null, callback));
-			// console.log(coords);
 		} else {
 			alert("Looks like geolocation is not supported.");
 		}
@@ -30,8 +29,6 @@
 		console.log(distance);
 		context.parent().parent().find('.distance .milage').append(distance);
 		context.parent().parent().find('#address .address-link').attr("href", "https://www.google.com/maps/dir/" +lat + "," + lng + "/" + location);
-
-		// document.getElementById("milage").innerHTML = distance;
 
 		})
 		.catch(function(error) {
