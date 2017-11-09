@@ -32,12 +32,14 @@ $(document).ready(function () {
 
     var updateInfo = {
       username: $username.val().trim(),
+      // email: $email.val().trim(),
       old_password: $old_password.val(),
-      password: $confirm_password.val()
-      // updatedAt: $.now()
+      password: $confirm_password.val(),
+      createdAt: Date('2017-11-08'),
+      updatedAt: Date('2017-11-09')
     };
 
-    if (passwordMatch ($new_password.val(), $confirm_password.val())) {
+    if (passwordMatch($new_password.val(), $confirm_password.val())) {
       $('#pass-mismatch').hide();
       $('#user-pass-mismatch').hide();
       if (checkValid(updateInfo.password)) {
@@ -49,7 +51,7 @@ $(document).ready(function () {
           if (!res.user) {
             $('#user-pass-mismatch').show();
           } else {
-            alert('Password has been updated!')
+            alert('Password has been updated!');
             window.location.href = '/landing_list';
           }
         });
