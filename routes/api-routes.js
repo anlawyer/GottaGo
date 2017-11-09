@@ -31,7 +31,14 @@ module.exports = function (app) {
     });
   });
 
+  app.get('/api/landing_map', function (req, res) {
+    db.restroom.findAll({})
+    .then(function (data) {
+      res.json(data);
+    });
+  });
   // make sure username isn't in use, adds new user if not
+
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
     db.User.findOne({

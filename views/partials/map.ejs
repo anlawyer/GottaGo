@@ -1,44 +1,133 @@
 <script>
+	var data;
+	$.ajax({
+		method: "GET",
+		url: "/api/landing_map"
+	}).done(function(res) {
+		// console.log(res);
 
-	function getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(userLocation);
-			// console.log(coords);
-		} else {
-			alert("Looks like geolocation is not supported.");
-		}
-	}
-
-	getLocation();
-
-	function userLocation(position) {
-		var lat = position.coords.latitude;
-		var lng = position.coords.longitude;
-		var latLng = new google.maps.LatLng(lat, lng);
+		var gasStationArray = [];
+		var restaurantArray = [];
+		var otherArray = [];
 		
-		console.log(lat);
-		console.log(lng);
+		function getGeocoge() { 
+		  for (var i = 0; i < res.length; i++) {
+		    function geocoding() {
+		      var key = "AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY";
+		      if (res[i].category == 0) {
+			      var location = res[i].location;
+			      axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + key 
+			      ).then(function(response) {
+			      	// console.log(data);
+			        var geocode = response.data.results[0].geometry.location;
+			        gasStationArray.push(geocode);
+			      })
+			      .catch(function(error) {
+			        console.log(error)
+			      })
+			  } else if (res[i].category == 1) {
+				  	var location = res[i].location;
+				  	axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + key 
+				  	).then(function(response) {
+				  		// console.log(data);
+				  	  var geocode = response.data.results[0].geometry.location;
+				  	  restaurantArray.push(geocode);
+				  	})
+				  	.catch(function(error) {
+				  	  console.log(error)
+				  	})
+				} else if (res[i].category == 2) {
+					var location = res[i].location;
+					axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + key 
+					).then(function(response) {
+						// console.log(data);
+					  var geocode = response.data.results[0].geometry.location;
+					  otherArray.push(geocode);
+					})
+					.catch(function(error) {
+					  console.log(error)
+					})
+				}
+		    }
+		    geocoding();
+		  }
+		}
 
-		initMap(latLng);
-	}
+		getGeocoge();
 
-	function initMap(latLng) {
-		var options = {
-			center: latLng,
-			zoom: 12,
-			mapTypeId: "roadmap"
-		};
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(userLocation);
+			} else {
+				alert("Looks like geolocation is not supported.");
+			}
+		}
 
-		var map = new google.maps.Map(document.getElementById("map"), options);
+		getLocation();
 
-		var marker = new google.maps.Marker({
-		  position: latLng,
-		  map: map,
-		  // icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png",
-		  label: "U"
-		  });
-	}
+		function userLocation(position) {
+			var lat = position.coords.latitude;
+			var lng = position.coords.longitude;
+			var latLng = new google.maps.LatLng(lat, lng);
+			console.log(lat, lng);
 
+			initMap(latLng);
+		}
+
+		function initMap(latLng) {
+			var options = {
+				center: latLng,
+				zoom: 12,
+				mapTypeId: "roadmap"
+			};
+
+			var map = new google.maps.Map(document.getElementById("map"), options);
+
+
+			  for (var i = 0; i < gasStationArray.length; i++) {
+			      function gasStationMarker() {
+			        var marker = new google.maps.Marker({
+			        position: gasStationArray[i],
+			        map: map,
+			        label: "G",
+			        content: ""
+			        });
+			      }
+			      gasStationMarker();
+			  }
+
+			  for (var i = 0; i < restaurantArray.length; i++) {
+			      function restaurantMarker() {
+			        var marker = new google.maps.Marker({
+			        position: restaurantArray[i],
+			        map: map,
+			        label: "R",
+			        });
+			      }
+			      restaurantMarker();
+			  }
+
+			  for (var i = 0; i < otherArray.length; i++) {
+			      function otherMarker() {
+			        var marker = new google.maps.Marker({
+			        position: otherArray[i],
+			        map: map,
+			        label: "O",
+			        });
+			      }
+			      otherMarker();
+			  }
+
+			  function userMarker() {
+			     var marker = new google.maps.Marker({
+			        position: latLng,
+			        map: map,
+			        icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png"
+			        });
+			  }
+			  userMarker();
+		}
+	});
 </script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY&callback=initMap">

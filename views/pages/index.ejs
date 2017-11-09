@@ -4,38 +4,54 @@
   <head>
     <% include ../partials/index-head %>
   </head>
-  <body>
-
-    <div class="has-text-centered">
-      <img id="logo" src="./transp-gotta-go.png" alt="Gotta Go">
+  <body onload="loading()">
+ 
+    <div id="loading">
+      <img class="spinner" src="./img/Rolling.svg"></img>
     </div>
+    <div id="main" class="animate-bottom">
+      <div class="has-text-centered">
+        <img id="logo" src="./img/transp-gotta-go.png" alt="Gotta Go">
+      </div>
 
-    <div id="intro" class="has-text-centered">
-      <p><strong>Log in/Sign up</strong> to be able comment, save favorite places and add new locations.</p>
-      <p> Or use it for searching without registration.</p>
-    </div>
+      <div id="intro" class="has-text-centered">
+        <p><strong>Log in/Sign up</strong> to be able comment, save favorite places and add new locations.</p>
+        <p> Or use it for searching without registration.</p>
+      </div>
 
-    <div class="columns">
-      <div class="column has-text-centered">
-        <a class="button" href="/login">Log in</a>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <a class="button" href="/login">Log in</a>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <a class="button" href="/signup">Sign Up</a>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <a class="button" href="/landing_list">Just use it</a>
+        </div>
       </div>
     </div>
+      <footer>
+        <% include ../partials/footer %>
+      </footer>
+  
+    <script>
+      var timer;
+      function loading() {
+        timer = setTimeout(showPage, 3000);
+      }
 
-    <div class="columns">
-      <div class="column has-text-centered">
-        <a class="button" href="/signup">Sign Up</a>
-      </div>
-    </div>
-
-    <div class="columns">
-      <div class="column has-text-centered">
-        <a class="button" href="/landing_list">Just use it</a>
-      </div>
-    </div>
-    
-    <footer>
-      <% include ../partials/footer %>
-    </footer>
+      function showPage() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("main").style.display = "block";
+      }
+    </script>
 
   </body>
 </html>
