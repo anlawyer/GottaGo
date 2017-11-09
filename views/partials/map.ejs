@@ -9,6 +9,8 @@
 		var gasStationArray = [];
 		var restaurantArray = [];
 		var otherArray = [];
+		var lat;
+		var lng;
 		
 		function getGeocoge() { 
 		  for (var i = 0; i < res.length; i++) {
@@ -83,6 +85,32 @@
 
 			var map = new google.maps.Map(document.getElementById("map"), options);
 
+			var gasStationMarkerContent;
+			var restaurantMarkerContent;
+			var otherMarkerContent;
+
+			for (var i =0; i < res.length; i++) {
+				var lat;
+				var lng;
+				switch (res[i].category) {
+					case 0: 
+					gasStationMarkerContent = '<div class="content">' +
+					'<h6>' + res[i].name + '</h6>' +
+					'<a href="https://www.google.com/maps/dir/" + lat + "," + lng + "/" + res[i].location + ">' + res[i].location + '</a>'
+					break;
+					case 1:
+					restaurantMarkerContent = '<div class="content">' +
+					'<h6>' + res[i].name + '</h6>' +
+					'<a href="https://www.google.com/maps/dir/"' + lat + "," + lng + "/" + res[i].location + '>'
+					break;
+
+					case 2:
+					otherMarkerContent = '<div class="content">' +
+					'<h6>' + res[i].name + '</h6>' +
+					'<a href="https://www.google.com/maps/dir/"' + lat + "," + lng + "/" + res[i].location + '>'
+					break;
+				}
+			}
 
 			  for (var i = 0; i < gasStationArray.length; i++) {
 			      function gasStationMarker() {
@@ -90,8 +118,15 @@
 			        position: gasStationArray[i],
 			        map: map,
 			        label: "G",
-			        content: ""
 			        });
+
+			        var infoWindow = new google.maps.InfoWindow({
+			        	content: gasStationMarkerContent
+			        })
+
+			        marker.addListener("click", function() {
+			        	infoWindow.open(map, marker);
+			        })
 			      }
 			      gasStationMarker();
 			  }
@@ -103,6 +138,14 @@
 			        map: map,
 			        label: "R",
 			        });
+
+			        var infoWindow = new google.maps.InfoWindow({
+			        	content: restaurantMarkerContent
+			        })
+
+			        marker.addListener("click", function() {
+			        	infoWindow.open(map, marker);
+			        })
 			      }
 			      restaurantMarker();
 			  }
@@ -114,6 +157,14 @@
 			        map: map,
 			        label: "O",
 			        });
+
+			        var infoWindow = new google.maps.InfoWindow({
+			        	content: otherMarkerContent
+			        })
+
+			        marker.addListener("click", function() {
+			        	infoWindow.open(map, marker);
+			        })
 			      }
 			      otherMarker();
 			  }
