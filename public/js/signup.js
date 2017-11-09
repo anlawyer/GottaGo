@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   var $username = $('#username');
-  var $email = $('#email');
+  // var $email = $('#email');
   var $password = $('#confirm-password');
 
   $(document).on('click', '#submit', submitUser);
@@ -30,25 +30,25 @@ $(document).ready(function () {
 
     var newUser = {
       username: $username.val().trim(),
-      email: $email.val().trim(),
+      // email: $email.val().trim(),
       password: $password.val()
     };
 
-    if (passwordMatch($("#password").val(), newUser.password)) {
-      $("#pass-mismatch").hide();
+    if (passwordMatch($('#password').val(), newUser.password)) {
+      $('#pass-mismatch').hide();
       if (checkValid(newUser.username, newUser.password)) {
         $.post('api/new/user', newUser, function (res) {
           if (res.user) {
-            alert('User already exists.');
+            $('#username-warning').show();
           } else {
             window.location.href = '/landing_list';
           }
         });
       } else {
-        $("#input-warning").show();
+        $('#input-warning').show();
       }
     } else {
-      $("#pass-mismatch").show();
+      $('#pass-mismatch').show();
     }
   }
 });
