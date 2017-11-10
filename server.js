@@ -1,10 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
-var passport = require('passport');
+// var passport = require('passport');
 // var session = require('express-session');
 // var env = require('dotenv').load();
-// console.log(process.env);
+
 var app = express();
 var PORT = process.env.PORT || 8080;
 

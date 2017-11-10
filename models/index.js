@@ -1,12 +1,12 @@
 'use strict';
 
-var fs        = require('fs');
-var path      = require('path');
+var fs = require('fs');
+var path = require('path');
 var Sequelize = require('sequelize');
-var basename  = path.basename(__filename);
-var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.json')[env];
-var db        = {};
+var basename = path.basename(__filename);
+var env = process.env.NODE_ENV || 'development';
+var config = require(__dirname + '/../config/config.json')[env];
+var db = {};
 
 if (process.env.JAWSDB_URL) {
   var sequelize = new Sequelize(process.env.JAWSDB_URL);
@@ -17,7 +17,7 @@ if (process.env.JAWSDB_URL) {
     user: 'k7wxmr3ho8unlwiy',
     password: 'fo8qh5auc93o1lxr',
     database: 'b04n4kdb1vgrygeu'
-  })
+  });
 }
 
 if (config.use_env_variable) {
