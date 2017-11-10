@@ -30,7 +30,7 @@ module.exports = {
         password: 'ducklings123',
         createdAt: '2017-11-03',
         updatedAt: '2017-11-04'
-      },
+      }
     ], {});
   },
 
