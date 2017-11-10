@@ -1,17 +1,16 @@
 <script>
 	var data;
+	var gasStationArray = [];
+	var restaurantArray = [];
+	var otherArray = [];
+	var lat;
+	var lng;
+
 	$.ajax({
 		method: "GET",
 		url: "/api/landing_map"
 	}).done(function(res) {
 		// console.log(res);
-
-		var gasStationArray = [];
-		var restaurantArray = [];
-		var otherArray = [];
-		var lat;
-		var lng;
-		
 		function getGeocoge() { 
 		  for (var i = 0; i < res.length; i++) {
 		    function geocoding() {
@@ -94,20 +93,20 @@
 				var lng;
 				switch (res[i].category) {
 					case 0: 
-					gasStationMarkerContent = '<div class="content">' +
+					gasStationMarkerContent = '<div class="content" style="width: 150px;">' +
 					'<h6>' + res[i].name + '</h6>' +
-					'<a href="https://www.google.com/maps/dir/" + lat + "," + lng + "/" + res[i].location + ">' + res[i].location + '</a>'
+					'<a href="https://www.google.com/maps/dir/"' + latLng + '"/"' + res[i].location + '">' + res[i].location +'</a>'
 					break;
 					case 1:
-					restaurantMarkerContent = '<div class="content">' +
+					restaurantMarkerContent = '<div class="content" style="width: 150px;">' +
 					'<h6>' + res[i].name + '</h6>' +
-					'<a href="https://www.google.com/maps/dir/"' + lat + "," + lng + "/" + res[i].location + '>'
+					'<a href="https://www.google.com/maps/dir/"' + latLng + "/" + res[i].location + '>' + res[i].location + '</a>'
 					break;
 
 					case 2:
-					otherMarkerContent = '<div class="content">' +
+					otherMarkerContent = '<div class="content" style="width: 150px;">' +
 					'<h6>' + res[i].name + '</h6>' +
-					'<a href="https://www.google.com/maps/dir/"' + lat + "," + lng + "/" + res[i].location + '>'
+					'<a href="https://www.google.com/maps/dir/"' + latLng + "/" + res[i].location + '>' + res[i].location + '</a>'
 					break;
 				}
 			}
@@ -173,7 +172,7 @@
 			     var marker = new google.maps.Marker({
 			        position: latLng,
 			        map: map,
-			        icon: "http://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png"
+			        icon: "https://maps.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png"
 			        });
 			  }
 			  userMarker();

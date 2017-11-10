@@ -22,7 +22,7 @@ body {
   margin: 0;
 }
 
-/*div#loading {
+div#loading {
   position: absolute;
   left: 55%;
   top: 50%;
@@ -39,7 +39,7 @@ div#main {
 .animate-bottom {
   position: relative;
   -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 2zs;
   animation-name: animatebottom;
   animation-duration: 1s
 }
@@ -52,7 +52,7 @@ div#main {
 @keyframes animatebottom { 
   from{ bottom:-100px; opacity:0 } 
   to{ bottom:0; opacity:1 }
-}*/
+}
 
 div.content:not(:last-child) {
   margin-bottom: 0;
