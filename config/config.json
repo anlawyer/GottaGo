@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "",
     "database": "gotta_go_db",
     "host": "localhost",
     "dialect": "mysql",
