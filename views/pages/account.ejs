@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    <script src="./js/account.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <% include ../partials/header %>
+      </header>
+
+      <div class="content">
+
+        <div class="columns">
+          <div id="title" class="column has-text-centered">
+            <div class="">
+              <h2>ACCOUNT INFO</h2>
+            </div>
+          </div>
+        </div>
+
+        <form name="form3" method="put" action="/account">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                  <input id="username" class="input" type="text" placeholder="your username">
+                </div>
+                <!-- <label class="label">Email</label>
+                <div class="control">
+                  <input id="email" class="input" type="email" placeholder="your email">
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Current password</label>
+                <div class="control">
+                  <input id="current-password" class="input" type="password" placeholder="enter password">
+                </div>
+                <p class="help is-danger" id="user-pass-mismatch" style="display:none">
+                  Username and password do not match. Try again.
+                </p>
+                <label class="label">New password</label>
+                <div class="control">
+                  <input id="new-password" class="input" type="password" placeholder="enter password">
+                </div>
+                <label class="label">Re-type new password</label>
+                <div class="control">
+                  <input id="confirm-new-password" class="input" type="password" placeholder="confirm password">
+                </div>
+                <p class="help is-danger" id="pass-mismatch" style="display:none">
+                  There's a password mismatch. Try again.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <div  class="control">
+                  <a class="button" id="submit" type="submit" method="PUT">Update</a>
+                </div>
+                <p class="help is-danger" id="input-warning" style="display:none">
+                  Only use letters and numbers for the password.
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <footer>
+        <% include ../partials/footer %>
+      </footer>
+    </div>
+  </body>
+</html>

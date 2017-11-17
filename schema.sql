@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS gotta_go_db;
+CREATE DATABASE gotta_go_db;

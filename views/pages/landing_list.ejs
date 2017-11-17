@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <% include ../partials/header %>
+      </header>
+
+      <div class="tabs is-toggle is-fullwidth">
+        <ul>
+          <li class="">
+            <a href="/landing_map">
+              <span class="icon is-small"><i class="fa fa-map"></i></span>
+              <span>Map</span>
+            </a>
+          </li>
+          <li>
+            <a href="/landing_list">
+              <span class="icon is-small"><i class="fa fa-list"></i></span>
+              <span>List</span>
+            </a>
+          </li>
+        </ul>
+      </div> 
+
+      <div class="content">
+        <% include ../partials/distance.ejs %>
+          <div id="title" class="box">
+            <% for (var i = 0; i < list.length; i++) { %>
+              <article class="pcard" data-card="<%= list[i].dataValues.id %>">
+                <% include ../partials/placecard %>
+              </article>
+            <% } %>
+          </div>
+      </div>
+
+      <footer>
+        <% include ../partials/footer %>
+      </footer>
+    </div>
+    <script src="./js/landing-list.js" type="text/javascript"></script>
+  </body>
+</html>
+
+

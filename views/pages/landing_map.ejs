@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body onload="loading()">
+    <div class="wrapper">
+      <header>
+        <% include ../partials/header %>
+      </header>
+
+      <div class="tabs is-toggle is-fullwidth">
+        <ul>
+          <li class="">
+            <a href="/landing_map">
+              <span class="icon is-small"><i class="fa fa-map"></i></span>
+              <span>Map</span>
+            </a>
+          </li>
+          <li>
+            <a href="/landing_list">
+              <span class="icon is-small"><i class="fa fa-list"></i></span>
+              <span>List</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="loading">
+        <img class="spinner" src="./img/Rolling.svg"></img>
+      </div>
+
+      <div id="main" class="animate-bottom">
+        <div class="content">
+          <div id="map">
+            <% include ../partials/map %>
+          </div>
+        </div>
+
+        <footer>
+          <% include ../partials/footer %>
+        </footer>
+      </div>
+
+    </div>
+    <script>
+      var timer;
+      function loading() {
+        timer = setTimeout(showPage, 3000);
+      }
+
+      function showPage() {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("main").style.display = "block";
+      }
+    </script>
+
+  </body>
+</html>

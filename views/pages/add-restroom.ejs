@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    <script src="./js/add-restroom.js" type="text/javascript"></script>
+  </head>
+  <body>
+   <div class="wrapper">
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="content">
+
+      <div class="columns">
+        <div id="title" class="column has-text-centered">
+          <div class="">
+            <h2>ADD NEW LOCATION</h2>
+          </div>
+        </div>
+      </div>
+
+       <form name="form1" method="POST" action="/landing_list">
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">LOCATION NAME</label>
+              <div class="control">
+                <input id="location-name" class="input" type="text" placeholder="eg. park, cafe">
+              </div>
+              <label class="label">ADDRESS</label>
+              <div class="control">
+                <input id="address" class="input" type="address" placeholder="eg. 1995 University Ave, Berkeley, CA, 94704">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <div class="control">
+                <label class="label">SELECT CATEGORY</label>
+                <label class="radio">
+                  <input type="radio" name="question" value='0'>
+                  Gas Station
+                </label>
+                <label class="radio">
+                  <input type="radio" name="question" value='1'>
+                  Restaurant
+                </label>
+                <label class="radio">
+                  <input type="radio" name="question" value='2'>
+                  Other
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">ADD COMMENT</label>
+              <p>optional</p>
+              <div class="control">
+                <textarea id="comment" class="textarea" placeholder="Textarea"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <div  class="control">
+                <input class="button" id="submit" type="submit" method="POST"></input>
+              </div>
+              <p class="help is-danger" id="rest-wrong" style="display:none">
+                Make sure you input the name, address and category for this spot
+              </p>
+            </div>
+          </div>
+        </div>
+       </form>
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+    <% include ../partials/autocomplete.ejs %>
+   </div>
+  </body>
+</html>

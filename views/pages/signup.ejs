@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    <script src="./js/signup.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="content">
+      <div class="columns">
+        <div id="title" class="column has-text-centered">
+          <div class="">
+            <h1>WELCOME!</h1>
+          </div>
+        </div>
+      </div>
+
+      <form id='signup' name="form2" method="POST" action="/landing_list">
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control">
+                <input id="username" class="input" type="text" placeholder="your username">
+              </div>
+              <p class="help is-danger" id="username-warning" style="display:none">
+                This username is already taken. Try another!
+                <br>
+                Or, login <a href='/login'>here</a>.
+              </p>
+              <!-- <label class="label">Email</label>
+              <div class="control">
+                <input id="email" class="input" type="email" placeholder="your email">
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input id="password" class="input" type="password" placeholder="enter password">
+              </div>
+              <label class="label">Confirm password</label>
+              <div class="control">
+                <input id="confirm-password" class="input" type="password" placeholder="confirm password">
+              </div>
+              <p class="help is-danger" id="pass-mismatch" style="display:none">
+                There's a password mismatch. Try again.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <div class="control">
+                <button class="button" id="submit" type="submit" method="POST">Sign up</button>
+              </div>
+              <p class="help is-danger" id="input-warning" style="display:none">
+                Only use letters and numbers for the username and password.
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </div>
+  </body>
+</html>
