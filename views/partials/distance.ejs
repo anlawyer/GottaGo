@@ -14,32 +14,41 @@ $.ajax({
   console.log(res);
 
 getLocation();
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(userLocation);
   } else {
     alert("Looks like geolocation is not supported.");
   }
-}function userLocation(position) {var lat = position.coords.latitude;var lng = position.coords.longitude;var latLng = new google.maps.LatLng(lat, lng);
-for (var i = 0; i < res.length; i++) {
-
-function getDistance() {
-
-var key = "AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY";
-axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + latLng + "&destinations=" + res[i].location + "&key=" + key
-).then(function(response) {
-  console.log(response);
-  var distance = response.data.rows[0].elements[0].distance.text;
-
-$('.distance .milage').append(distance);
-$('#address .address-link').attr("href", "https://www.google.com/maps/dir/" + lat + "," + lng + "/" + location);
-})
-.catch(function(error) {
-  console.log(error)
-  })
 }
-  getDistance();
-  }
+
+function userLocation(position) {
+var lat = position.coords.latitude;
+var lng = position.coords.longitude;
+var latLng = new google.maps.LatLng(lat, lng);
+
+for (var i = 0; i < res.length; i++) {
+    function getDistance() {
+      var distance;
+      for (var i = 0; i < res.length; i++) {
+      var key = "AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY";
+      // var location = res[i].location;
+      axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + lat + "," + lng + "&destinations=" + res[i].location + "&key=" + key 
+      ).then(function(response) {
+          console.log(response);
+      var distance = response.data.rows[0].elements[0].distance.text;
+      // console.log(distance);
+
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+    }
+    $('.distance .milage').append(distance);
+    $('#address .address-link').attr("href", "https://www.google.com/maps/dir/" + lat + "," + lng + "/" + res[i].location);
+    }
+    getDistance();
   }
 });
 </script>
