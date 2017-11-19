@@ -1,54 +1,56 @@
 <script>
-	var latLng;
-	var lat;
-	var lng;
-	var location;
+var latLng;
+var lat;
+var lng;
+var location;
 
-	$.ajax({
-		method: "GET",
-		url: "/api/landing_list"
-	}).done(function(res) {
-		var lat;
-		var lng;
-		var latLng;
-		console.log(res);
+$.ajax({
+  method: "GET",
+  url: "/api/landing_list"
+}).done(function(res) {
+  var lat;
+  var lng;
+  var latLng;
+  console.log(res);
 
-		getLocation();
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(userLocation);
-			} else {
-				alert("Looks like geolocation is not supported.");
-			}
-		}
+getLocation();
 
-		function userLocation(position) {
-			var lat = position.coords.latitude;
-			var lng = position.coords.longitude;
-			var latLng = new google.maps.LatLng(lat, lng);
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(userLocation);
+  } else {
+    alert("Looks like geolocation is not supported.");
+  }
+}
 
-		  function getDistance() {
-		  	var distance;
-		  	for (var i = 0; i < res.length; i++) {
-				var key = "AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY";
-				// var location = res[i].location;
-				axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + lat + "," + lng + "&destinations=" + res[i].location + "&key=" + key 
-				).then(function(response) {
-						console.log(response);
-				var distance = response.data.rows[0].elements[0].distance.text;
-				// console.log(distance);
+function userLocation(position) {
+var lat = position.coords.latitude;
+var lng = position.coords.longitude;
+var latLng = new google.maps.LatLng(lat, lng);
 
-				})
-				.catch(function(error) {
-					console.log(error)
-				})
-			}
-			$('.distance .milage').append(distance);
-			$('#address .address-link').attr("href", "https://www.google.com/maps/dir/" + lat + "," + lng + "/" + res[i].location);
-		  }
-		  getDistance();
-		}
-	});
+for (var i = 0; i < res.length; i++) {
+    function getDistance() {
+      var distance;
+      for (var i = 0; i < res.length; i++) {
+      var key = "AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY";
+      // var location = res[i].location;
+      axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + lat + "," + lng + "&destinations=" + res[i].location + "&key=" + key 
+      ).then(function(response) {
+          console.log(response);
+      var distance = response.data.rows[0].elements[0].distance.text;
+      // console.log(distance);
+
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+    }
+    $('.distance .milage').append(distance);
+    $('#address .address-link').attr("href", "https://www.google.com/maps/dir/" + lat + "," + lng + "/" + res[i].location);
+    }
+    getDistance();
+  }
+});
 </script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCtDV0aY7IdfyS0HPw6M0AmJaQe9DPTTY">

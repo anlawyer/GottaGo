@@ -37,7 +37,6 @@ module.exports = function (app) {
       res.json(data);
     });
   });
-  // make sure username isn't in use, adds new user if not
 
   app.post('/api/new/user', function (req, res) {
     console.log(req.body);
@@ -62,7 +61,6 @@ module.exports = function (app) {
     });
   });
 
-  // checking if user logging in exists in the database
   app.post('/api/check-user',
     function (req, res) {
       console.log(req.body);
@@ -95,7 +93,6 @@ module.exports = function (app) {
       });
     });
 
-  // make sure user exists and then updates
   app.put('/api/update/user', function (req, res) {
     console.log(req.body);
     console.log('94', typeof req.body.old_password);
@@ -107,11 +104,10 @@ module.exports = function (app) {
       }
     })
     .then(function (data) {
-      if (data == null) { // if no match, send err
+      if (data == null) {
         console.log('username/password no match');
         res.send({user: false});
-      } else { // if match, update
-        // getting error here:
+      } else {
         // `TypeError: Path must be a string.Cannot create property 'updatedAt' on string '1234'`
         console.log('match, updating.');
         db.User.update(req.body.password, {
@@ -120,12 +116,10 @@ module.exports = function (app) {
           }
         })
         .then(function (data) {
-          // res.json(data);
           console.log(data);
         });
       }
     }).catch(function (error) {
-      // res.render(error);
       console.log(error);
     });
   });
@@ -137,8 +131,6 @@ module.exports = function (app) {
   //     // res.redirect('/signin');
   //   }
   // }
-
-  // not sure if this should go in this file or in login.js...
 //   passport.use(new LocalStrategy(
 //     function (username, password, done) {
 //       db.User.findOne({
